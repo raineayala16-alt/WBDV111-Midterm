@@ -1,0 +1,31 @@
+HOME
+
+file:///C:/Users/ALCA/Desktop/FOLDERS/SCHOOL/La%20Luna%20Vista%20Resort/Home.html
+
+ABOUT
+
+file:///C:/Users/ALCA/Desktop/FOLDERS/SCHOOL/La%20Luna%20Vista%20Resort/About.html
+
+SERVICE
+
+file:///C:/Users/ALCA/Desktop/FOLDERS/SCHOOL/La%20Luna%20Vista%20Resort/Service1.html
+
+SERVICE 2
+
+file:///C:/Users/ALCA/Desktop/FOLDERS/SCHOOL/La%20Luna%20Vista%20Resort/Service2.html
+
+SERVICE 3
+
+file:///C:/Users/ALCA/Desktop/FOLDERS/SCHOOL/La%20Luna%20Vista%20Resort/Service3.html
+
+SERVICE 4
+
+file:///C:/Users/ALCA/Desktop/FOLDERS/SCHOOL/La%20Luna%20Vista%20Resort/Service4.html
+
+SERVICE 5
+
+file:///C:/Users/ALCA/Desktop/FOLDERS/SCHOOL/La%20Luna%20Vista%20Resort/Service5.html
+
+CHECKIN
+
+file:///C:/Users/ALCA/Desktop/FOLDERS/SCHOOL/La%20Luna%20Vista%20Resort/CheckIn.html

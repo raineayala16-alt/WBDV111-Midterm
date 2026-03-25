@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Service</title>
+<link rel="stylesheet" href="Service5.css">
+</head>
+<body>
+
+<div class="navbar">
+
+<div class="logo">
+<img src="Logo1.png">
+<span class="brand">LUNA VISTA RESORT</span>
+</div>
+
+<ul>
+<li>HOME</li>
+<li>ABOUT</li>
+<li class="active">SERVICE</li>
+</ul>
+
+</div>
+
+<div class="container">
+
+<h2 class="title">Elephant Villa</h2>
+
+<div class="villa">
+
+<div class="image">
+<img src="Elephant Villa.png">
+</div>
+
+<div class="text">
+
+<p>
+The Elephant Villa is the best One Bedroom Villa with a Private Pool and stunning valley views,
+offering the most picturesque scenery of any luxury villa in Bali. The private pool measures 4m x 10m,
+totaling 40m². The traditional Balinese indoor and outdoor living areas are perfect for couples looking for an exclusive honeymoon in Ubud.
+</p>
+
+<a href="Booking.html" class="prev">RESERVE NOW</a>
+
+<div class="buttons">
+
+<a href="Service4.html" class="prev">PREVIOUS</a>
+<a href="CheckIn.html" class="next">NEXT</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>
