@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Luna Vista Resort</title>
+  <link rel="stylesheet" href="About.css">
+</head>
+<body>
+
+<div class="carousel">
+
+  <div class="navbar">
+    <div class="logo">
+      <img src="Logo1.png" alt="Luna Vista Logo" />
+      <span class="brand">LUNA VISTA RESORT</span>
+    </div>
+    <ul>
+      <li><a href="Home.html" class="nav-link">HOME</a></li>
+      <li><a href="#" class="nav-link">ABOUT</a></li>
+      <li><a href="Service.html" class="nav-link">SERVICE</a></li>
+      <li class="book"><a href="#" class="nav-link">BOOK NOW</a></li>
+    </ul>
+  </div>
+
+  <!-- Carousel slides -->
+  <div class="slide active">
+    <img src="Slide 1.png" alt="Slide 1" />
+  </div>
+  <div class="slide">
+    <img src="Slide 2.png" alt="Slide 2" />
+  </div>
+  <div class="slide">
+    <img src="Slide 3.png" alt="Slide 3" />
+  </div>
+  <div class="slide">
+    <img src="Slide 4.png" alt="Slide 4" />
+  </div>
+  <div class="slide">
+    <img src="Slide 5.png" alt="Slide 5" />
+  </div>
+  <div class="slide">
+    <img src="Slide 6.png" alt="Slide 6" />
+  </div>
+
+  <!-- Carousel controls -->
+  <div class="arrow left" onclick="prev()">&#10094;</div>
+  <div class="arrow right" onclick="next()">&#10095;</div>
+
+  <!-- Carousel dots -->
+  <div class="dots">
+    <span class="dot active" onclick="currentSlide(0)"></span>
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+  </div>
+
+</div>
+
+<!-- Welcome message section -->
+<div class="centered-content">
+  <div class="welcome">
+    <div class="icon">
+      <img src="Logo2.png" alt="Icon" />
+    </div>
+    <div class="text">
+      <p>
+        Welcome to Luna Vista Resort! We are delighted to have you as our guest and are
+        committed to providing you with a comfortable and memorable stay.
+      </p>
+      <p>
+        As a first-time guest, we want to ensure that you have a seamless and enjoyable
+        experience with us. Our friendly and knowledgeable staff are available 24/7
+        to assist you with any questions or concerns you may have.
+      </p>
+    </div>
+  </div>
+</div>
+
+<script>
+  let slides = document.querySelectorAll(".slide");
+  let dots = document.querySelectorAll(".dot");
+  let index = 0;
+
+  function showSlide(i) {
+    slides.forEach((s) => s.classList.remove("active"));
+    dots.forEach((d) => d.classList.remove("active"));
+    slides[i].classList.add("active");
+    dots[i].classList.add("active");
+  }
+
+  function next() {
+    index++;
+    if (index >= slides.length) {
+      index = 0;
+    }
+    showSlide(index);
+  }
+
+  function prev() {
+    index--;
+    if (index < 0) {
+      index = slides.length - 1;
+    }
+    showSlide(index);
+  }
+
+  function currentSlide(i) {
+    index = i;
+    showSlide(index);
+  }
+
+  setInterval(() => {
+    next();
+  }, 5000);
+</script>
+
+</body>
+</html>
