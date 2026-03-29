@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Velvet Crust Cakes</title>
+<link rel="stylesheet" href="Date.css" />
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="logo-container">
+      <img src="Logo.png" alt="Velvet Crust Logo" class="logo" />
+    </div>
+    <div class="title">
+      <h1>We are great to have you!</h1>
+      <h2>Pick a date and time for your order.</h2>
+    </div>
+  </div>
+  
+  <div class="selection">
+    <div class="dropdown-group">
+      <label for="month">Month</label>
+      <select id="month">
+        <option>January</option>
+        <option>February</option>
+        <option>March</option>
+        <option>April</option>
+        <option>May</option>
+        <option>June</option>
+        <option>July</option>
+        <option>August</option>
+        <option>September</option>
+        <option>October</option>
+        <option>November</option>
+        <option>December</option>
+      </select>
+    </div>
+    <div class="dropdown-group">
+      <label for="day">Day</label>
+      <select id="day">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option>10</option>
+        <option>11</option>
+        <option>12</option>
+        <option>13</option>
+        <option>14</option>
+        <option>15</option>
+        <option>16</option>
+        <option>17</option>
+        <option>18</option>
+        <option>19</option>
+        <option>20</option>
+        <option>21</option>
+        <option>22</option>
+        <option>23</option>
+        <option>24</option>
+        <option>25</option>
+        <option>26</option>
+        <option>27</option>
+        <option>28</option>
+        <option>29</option>
+        <option>30</option>
+        <option>31</option>
+      </select>
+    </div>
+    <div class="dropdown-group">
+      <label for="year">Year</label>
+      <select id="year">
+        <option>2026</option>
+        <option>2027</option>
+      </select>
+    </div>
+    <div class="dropdown-group">
+      <label for="time">Time</label>
+      <select id="time">
+        <option>10:00 AM</option>
+        <option>11:00 AM</option>
+        <option>12:00 PM</option>
+        <option>1:00 PM</option>
+        <option>2:00 PM</option>
+        <option>3:00 PM</option>
+        <option>4:00 PM</option>
+        <option>5:00 PM</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="column-container">
+    <a href="#" class="column-button" onclick="sendData()">Next</a>
+  </div>
+  
+</div>
+
+<script>
+function sendData() {
+  const month = document.getElementById('month').value;
+  const day = document.getElementById('day').value;
+  const year = document.getElementById('year').value;
+  const time = document.getElementById('time').value;
+
+  const params = new URLSearchParams();
+  params.append('answer', `Date: ${month} ${day}, ${year} at ${time}`);
+
+  window.location.href = `Result.html?${params.toString()}`;
+}
+</script>
+
+</body>
+</html>

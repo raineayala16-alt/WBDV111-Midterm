@@ -1,0 +1,110 @@
+body {
+  margin: 0;
+  font-family: Aptos, sans-serif;
+  background-image: url("bgg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page {
+  width: 100%;
+}
+
+.top {
+  position: absolute;
+  top: 55px;
+  left: 50px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  width: 70px;
+}
+
+.brand h2 {
+  margin: 0;
+  font-size: 26px;
+}
+
+.brand p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 120px;
+}
+
+.image-box {
+  width: 500px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cake-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.text-box {
+  width: 480px;
+}
+
+.text-box h1 {
+  margin: 0;
+  font-size: 38px;
+  color: #4b1116;
+}
+
+.text-box p {
+  margin-top: 18px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.order-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  width: 220px;
+  height: 65px;
+  background: #7b2f39;
+  color: white;
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: bold;
+  border-radius: 14px;
+}
+
+.column-button {
+  position: absolute;
+  top: 40px;
+  right: 50px;
+  display: flex;
+  padding: 12px 24px;
+  background-color: #8e6f4b;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 8px;
+  border: none;
+  text-decoration: none;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}

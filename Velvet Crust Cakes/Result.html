@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<head>
+<title>Velvet Crust - Result</title>
+<link rel="stylesheet" href="Result.css" />
+</head>
+<body>
+<div class="header">
+  <div class="logo">
+    <img src="logo.png" alt="Logo" class="logo-image" />
+  </div>
+  <div class="title">
+    <h1>Velvet Crust</h1>
+    <p>Cakes</p>
+  </div>
+</div>
+<div class="container">
+  <h2 class="instruction">Please double check the information</h2>
+  <div class="answer-card" id="answer-card">
+    <div class="answer-label">Your Answer:</div>
+    <div class="answer-content" id="answer-content">Your answer: </div>
+  </div>
+  <div class="date-response-label">Date Response:</div>
+  <div class="date-time-section">
+    <div class="date" id="date"></div>
+    <div class="time" id="time"></div>
+  </div>
+  <div class="email-section">
+    <label for="email">Please provide email so we can send you an update:</label>
+    <input type="email" id="email" placeholder="@gmail.com" />
+  </div>
+  <div class="description">
+    Please put your email and we'll notify you about the follow-up update.
+  </div>
+</div>
+<button class="next-btn" onclick="location.href='Ty.html'">NEXT</button>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const answer = params.get('answer');
+  if (answer) {
+    document.getElementById('answer-content').textContent = answer;
+  }
+  const currentDate = new Date();
+  document.getElementById('date').textContent = "Date: " + currentDate.toLocaleDateString();
+  document.getElementById('time').textContent = "Time: " + currentDate.toLocaleTimeString();
+</script>
+</body>
+</html>

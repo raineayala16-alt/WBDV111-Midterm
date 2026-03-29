@@ -1,0 +1,29 @@
+HOME:
+file:///C:/Users/ALCA/Desktop/FOLDERS/SCHOOL/Velvet%20Crust%20Cakes/Home.html
+
+PICK:
+file:///C:/Users/ALCA/Desktop/FOLDERS/SCHOOL/Velvet%20Crust%20Cakes/Pick.html
+
+RECOMMENDATION:
+file:///C:/Users/ALCA/Desktop/FOLDERS/SCHOOL/Velvet%20Crust%20Cakes/Recom.html
+
+Velour Vanilla
+file:///C:/Users/ALCA/Desktop/FOLDERS/SCHOOL/Velvet%20Crust%20Cakes/2.html
+
+Mocha Whisper
+file:///C:/Users/ALCA/Desktop/FOLDERS/SCHOOL/Velvet%20Crust%20Cakes/3.html
+
+Signature Velvet Crust
+file:///C:/Users/ALCA/Desktop/FOLDERS/SCHOOL/Velvet%20Crust%20Cakes/4.html
+
+Midnight Chocolate
+file:///C:/Users/ALCA/Desktop/FOLDERS/SCHOOL/Velvet%20Crust%20Cakes/1.html
+
+ORDER
+file:///C:/Users/ALCA/Desktop/FOLDERS/SCHOOL/Velvet%20Crust%20Cakes/Date.html
+
+RESULT
+file:///C:/Users/ALCA/Desktop/FOLDERS/SCHOOL/Velvet%20Crust%20Cakes/Result.html?answer=Date%3A+January+1%2C+2026+at+10%3A00+AM
+
+THANKYOU
+file:///C:/Users/ALCA/Desktop/FOLDERS/SCHOOL/Velvet%20Crust%20Cakes/Ty.html
