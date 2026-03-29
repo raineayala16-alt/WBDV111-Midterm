@@ -1,0 +1,17 @@
+HOME
+file:///C:/Users/ALCA/Desktop/FOLDERS/SCHOOL/LibryConnect/Home.html
+
+LOG IN
+file:///C:/Users/ALCA/Desktop/FOLDERS/SCHOOL/LibryConnect/LogIn.html
+
+DASH
+file:///C:/Users/ALCA/Desktop/FOLDERS/SCHOOL/LibryConnect/Dash.html
+
+STATUS
+file:///C:/Users/ALCA/Desktop/FOLDERS/SCHOOL/LibryConnect/status.html
+
+LOAN
+file:///C:/Users/ALCA/Desktop/FOLDERS/SCHOOL/LibryConnect/loan.html
+
+DUE
+file:///C:/Users/ALCA/Desktop/FOLDERS/SCHOOL/LibryConnect/due.html

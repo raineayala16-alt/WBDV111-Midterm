@@ -1,0 +1,60 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #d1dade, #fbfcfc);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    position: relative;
+    width: 500px;
+    height: 500px;
+}
+
+
+.logo {
+    position: absolute;
+    top: 90px;
+    left: 150px;
+    width: 500px; 
+    height: auto;
+}
+
+.welcome-text {
+    position: absolute;
+    top: 180px;
+    left: -50px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.description {
+    position: absolute;
+    bottom: -90px;
+    left: 595px;
+    right: -640px;
+    font-size: 16px;
+    color: #555;
+    text-align: center;
+}
+
+.bottom-right-controls {
+    position: absolute;
+    bottom: -100px;
+    right: -490px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#wordInput {
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="Home.css" />
+</head>
+<body>
+    <div class="container">
+        <img src="Logo.png" alt="Logo" class="logo" />
+
+        <div class="welcome-text">Welcome to</div>
+
+        <div class="description">
+            Click this to continue.
+        </div>
+
+        <div class="bottom-right-controls">
+            <a href="dash.html" style="display:inline-block;">
+                <img src="next.png" alt="Next" id="nextLink" style="cursor:pointer; width:24px; height:auto;" />
+            </a>
+            <input type="text" id="wordInput" placeholder="Enter word" style="display:none;" />
+        </div>
+    </div>
+
+    <script>
+       
+        const nextLink = document.getElementById('nextLink');
+        const wordInput = document.getElementById('wordInput');
+
+        nextLink.addEventListener('next.png', (e) => {
+         e.preventDefault(); 
+        if (wordInput.style.display === 'none') {
+         wordInput.style.display = 'block';
+        } else {
+        Optionally, navigate to dash.html after input
+        window.location.href = 'LogIn.html';
+        }
+        });
+    </script>
+</body>
+</html>
