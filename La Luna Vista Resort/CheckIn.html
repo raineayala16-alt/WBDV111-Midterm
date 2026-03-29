@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<title>LUNA VISTA RESORT Booking Form</title>
+<link rel="stylesheet" href="CheckIn.css" />
+</head>
+<body>
+
+<div class="2.png"></div>
+<div class="banner">
+  Please provide information accurately to avoid wrong info thankyou.
+</div>
+
+<div class="container">
+  <form id="bookingForm">
+    <label for="fname">First Name</label>
+    <input type="text" id="fname" name="fname" />
+
+    <label for="mname">Middle Name</label>
+    <input type="text" id="mname" name="mname" />
+
+    <label for="lname">Last Name</label>
+    <input type="text" id="lname" name="lname" />
+
+    <label for="book">Book Now</label>
+
+    <button type="button" class="room-btn" id="deluxeVilla">Deluxe Terrace Villa</button>
+    <button type="button" class="room-btn" id="viceroyVilla">Viceroy Villa</button>
+    <button type="button" class="room-btn" id="viceRegalVilla">Vice Regal Villa</button>
+    <button type="button" class="room-btn" id="elephantVilla">Elephant Villa</button>
+    <button type="button" class="room-btn" id="terraceVilla">Terrace Villa</button>
+
+    <input type="text" id="contact" name="contact" placeholder="Contact No." />
+
+    <label for="checkin">Check In</label>
+    <div class="date-selectors">
+      <select id="checkin-month" name="checkin-month">
+        <option value="">Month</option>
+        <option value="01">January</option>
+        <option value="02">February</option>
+        <option value="03">March</option>
+        <option value="04">April</option>
+        <option value="05">May</option>
+        <option value="06">June</option>
+        <option value="07">July</option>
+        <option value="08">August</option>
+        <option value="09">September</option>
+        <option value="10">October</option>
+        <option value="11">November</option>
+        <option value="12">December</option>
+      </select>
+      <select id="checkin-day" name="checkin-day">
+        <option value="">Day</option>
+        <option value="1">1</option><option value="2">2</option><option value="3">3</option>
+        <option value="4">4</option><option value="5">5</option><option value="6">6</option>
+        <option value="7">7</option><option value="8">8</option><option value="9">9</option>
+        <option value="10">10</option><option value="11">11</option><option value="12">12</option>
+        <option value="13">13</option><option value="14">14</option><option value="15">15</option>
+        <option value="16">16</option><option value="17">17</option><option value="18">18</option>
+        <option value="19">19</option><option value="20">20</option><option value="21">21</option>
+        <option value="22">22</option><option value="23">23</option><option value="24">24</option>
+        <option value="25">25</option><option value="26">26</option><option value="27">27</option>
+        <option value="28">28</option><option value="29">29</option><option value="30">30</option>
+        <option value="31">31</option>
+      </select>
+      <select id="checkin-year" name="checkin-year">
+        <option value="">Year</option>
+        <option value="2024">2024</option>
+        <option value="2025">2025</option>
+        <option value="2026">2026</option>
+        <option value="2027">2027</option>
+        <option value="2028">2028</option>
+      </select>
+    </div>
+
+    <label for="checkout">Check Out</label>
+    <div class="date-selectors">
+      <select id="checkout-month" name="checkout-month">
+        <option value="">Month</option>
+        <option value="01">January</option>
+        <option value="02">February</option>
+        <option value="03">March</option>
+        <option value="04">April</option>
+        <option value="05">May</option>
+        <option value="06">June</option>
+        <option value="07">July</option>
+        <option value="08">August</option>
+        <option value="09">September</option>
+        <option value="10">October</option>
+        <option value="11">November</option>
+        <option value="12">December</option>
+      </select>
+      <select id="checkout-day" name="checkout-day">
+        <option value="">Day</option>
+        <option value="1">1</option><option value="2">2</option><option value="3">3</option>
+        <option value="4">4</option><option value="5">5</option><option value="6">6</option>
+        <option value="7">7</option><option value="8">8</option><option value="9">9</option>
+        <option value="10">10</option><option value="11">11</option><option value="12">12</option>
+        <option value="13">13</option><option value="14">14</option><option value="15">15</option>
+        <option value="16">16</option><option value="17">17</option><option value="18">18</option>
+        <option value="19">19</option><option value="20">20</option><option value="21">21</option>
+        <option value="22">22</option><option value="23">23</option><option value="24">24</option>
+        <option value="25">25</option><option value="26">26</option><option value="27">27</option>
+        <option value="28">28</option><option value="29">29</option><option value="30">30</option>
+        <option value="31">31</option>
+      </select>
+      <select id="checkout-year" name="checkout-year">
+        <option value="">Year</option>
+        <option value="2024">2024</option>
+        <option value="2025">2025</option>
+        <option value="2026">2026</option>
+        <option value="2027">2027</option>
+        <option value="2028">2028</option>
+      </select>
+    </div>
+
+    <div class="buttons">
+      <button type="button" class="btn-cancel">CANCEL</button>
+      <button type="submit" class="btn-submit">SUBMIT</button>
+    </div>
+  </form>
+  <div id="thankYou" style="margin-top:20px; font-weight:bold; color:green;"></div>
+</div>
+
+
+<script>
+
+  document.querySelector('.btn-cancel').addEventListener('click', () => {
+    window.location.href = 'Home.html';
+  });
+
+
+  document.getElementById('bookingForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const btn = document.querySelector('.btn-submit');
+    btn.style.backgroundColor = 'green';
+    document.getElementById('thankYou').textContent = 'Thank you for trusting us';
+  });
+</script>
+</body>
+</html>
