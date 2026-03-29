@@ -1,0 +1,145 @@
+body{
+    margin:0;
+    height:100vh;
+    background-image:url("bg.png");
+    background-size:cover;
+    background-position:center;
+    font-family:Arial, sans-serif;
+    background-color:#12152b;
+    color:#0f1e4f;
+}
+
+header{
+    position:relative;
+    height:90px;
+}
+
+.logo{
+    width:55px;
+    position:absolute;
+
+    top:-30px;    
+    left:-60px;    
+}
+
+header h1{
+    position:absolute;
+
+    top:-20px;   
+    left:10px; 
+
+    color:white;
+    font-size:28px;
+    margin:0;
+}
+
+.form-title{
+    position:absolute;
+
+    top:-20px;  
+    right:-60px; 
+
+    background:#1c3b7c;
+    padding:10px 20px;
+    border-radius:6px;
+    font-weight:bold;
+    color:white;
+}
+
+.container{
+    width:90%;
+    max-width:1900px;
+    margin:40px auto;
+}
+
+.main-box{
+    background:#0d3b78;
+    padding:20px;
+    border-radius:20px;
+}
+
+.inner-box{
+    background:#9fb6d4;
+    border-radius:20px;
+    padding:40px;
+    position:relative;
+}
+
+.details-form{
+    display:flex;
+    gap:120px;
+    align-items:center;
+}
+
+.form-left{
+    width:50%;
+}
+
+
+.form-right{
+    width:50%;
+}
+
+label{
+    font-size:22px;
+    color:white;
+    display:block;
+    margin-bottom:10px;
+}
+
+select,
+input{
+    width:320px;
+    padding:15px;
+    border:none;
+    border-radius:18px;
+    font-size:20px;
+    margin-bottom:25px;
+    background:#e6e6e6;
+}
+
+.subjects{
+    background:#e6e6e6;
+    border-radius:20px;
+    padding:25px;
+    width:600px;
+}
+
+.subjects h3{
+    margin-top:0;
+    color:#173f73;
+}
+
+.subjects ul{
+    padding-left:25px;
+    line-height:1.9;
+}
+
+.balance{
+    margin-bottom:25px;
+}
+
+.balance-amount{
+    background:#e6e6e6;
+    padding:15px 30px;
+    border-radius:18px;
+    display:inline-block;
+    font-size:24px;
+    font-weight:bold;
+    margin-top:10px;
+    color:black;
+}
+
+.transcript-btn{
+    position:absolute;
+
+    bottom:20px; 
+    right:30px;  
+
+    background:#e6e6e6;
+    color:#173f73;
+    padding:15px 50px;
+    border-radius:12px;
+    text-decoration:none;
+    font-size:22px;
+}

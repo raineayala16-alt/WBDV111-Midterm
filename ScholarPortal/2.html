@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+<title>Student Info</title>
+<link rel="stylesheet" href="2.css" />
+</head>
+<body>
+<div class="container">
+  <div class="logo-section">
+    <img src="Logo.png" class="logo" alt="ScholarPortal Logo"/>
+    <div class="logo-text">ScholarPortal</div>
+  </div>
+  <div class="form-section">
+    <h2>Student Information</h2>
+    <form action="page3.html" method="post">
+      <label for="studentID">Student ID:</label>
+      <input type="text" id="studentID" name="studentID" required />
+
+      <label for="course">Course:</label>
+      <select id="course" name="course" required>
+        <option value="BSIT">BSIT</option>
+        <option value="BSCS">BSCS</option>
+        <option value="BSEMC">BSEMC</option>
+      </select>
+
+      <label for="year">Year:</label>
+      <select id="year" name="year" required>
+        <option value="2026-2027">2026-2027</option>
+        <option value="2027-2028">2027-2028</option>
+      </select>
+
+      <label for="sem">Sem:</label>
+      <select id="sem" name="sem" required>
+        <option value="1st Sem">1st Sem</option>
+        <option value="2nd Sem">2nd Sem</option>
+      </select>
+
+      <a href="3.html" class="next-button">&#8594;</a>
+    </form>
+  </div>
+</div>
+</body>
+</html>
