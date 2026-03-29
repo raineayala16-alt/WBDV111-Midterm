@@ -1,0 +1,27 @@
+body{
+    margin:0;
+    font-family:Arial;
+    background:url("Bg.png");
+    background-size:cover;
+    text-align:center;
+}
+
+.container{
+    margin-top:80px;
+}
+
+.logo{
+    width:550px;
+}
+
+h1{
+    color:#0f2b2b;
+}
+
+p{
+    width:70%;
+    margin:40px auto;
+    font-size:28px;
+    font-weight:bold;
+    color:#0f2b2b;
+}

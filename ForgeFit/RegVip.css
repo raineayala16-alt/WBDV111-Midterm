@@ -1,0 +1,33 @@
+body{
+    margin:0;
+    font-family:Arial;
+    background:url("Bg.png");
+    background-size:cover;
+    text-align:center;
+}
+
+.box{
+    margin-top:200px;
+}
+
+.choice{
+    padding:20px 80px;
+    margin:20px;
+    border:none;
+    border-radius:25px;
+    background:#0f2b2b;
+    color:white;
+    font-size:20px;
+    cursor:pointer;
+}
+
+.next{
+    display:block;
+    margin:40px auto;
+    padding:15px 60px;
+    width:150px;
+    background:#0f2b2b;
+    color:white;
+    text-decoration:none;
+    border-radius:25px;
+}

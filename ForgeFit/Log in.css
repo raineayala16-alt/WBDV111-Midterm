@@ -1,0 +1,36 @@
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:url("Bg.png");
+    background-size:cover;
+    text-align:center;
+}
+
+.container{
+    margin-top:100px;
+}
+
+.logo{
+    width:600px;
+}
+
+h1{
+    font-size:48px;
+    color:#0f2b2b;
+    margin:10px 0 40px;
+}
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:80px;
+}
+
+.btn{
+    padding:15px 50px;
+    background:#0f2b2b;
+    color:white;
+    text-decoration:none;
+    border-radius:25px;
+    font-size:20px;
+}
