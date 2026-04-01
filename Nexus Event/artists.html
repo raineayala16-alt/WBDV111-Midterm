@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artists</title>
+    <link rel="stylesheet" href="artist.css">
+</head>
+<body>
+
+<div class="glass fade">
+    <h2>Select Artist</h2>
+
+    <div class="carousel-container">
+        <div class="carousel-slides">
+            <div class="carousel-item">
+                <img src="ag.jfif" alt="Ariana Grande" onclick="selectArtist(this, 'Ariana Grande')">
+            </div>
+            <div class="carousel-item">
+                <img src="bm.jfif" alt="Bruno Mars" onclick="selectArtist(this, 'Bruno Mars')">
+            </div>
+            <div class="carousel-item">
+                <img src="cp.jfif" alt="Charlie Puth" onclick="selectArtist(this, 'Charlie Puth')">
+            </div>
+            <div class="carousel-item">
+                <img src="jb.jfif" alt="Justin Bieber" onclick="selectArtist(this, 'Justin Bieber')">
+            </div>
+            <div class="carousel-item">
+                <img src="ty.jfif" alt="Taylor Swift" onclick="selectArtist(this, 'Taylor Swift')">
+            </div>
+            <div class="carousel-item">
+                <img src="tw.jfif" alt="The Weeknd" onclick="selectArtist(this, 'The Weeknd')">
+            </div>
+        </div>
+        <button class="carousel-nav-btn prev" onclick="prevSlide()">&#10094;</button>
+        <button class="carousel-nav-btn next" onclick="nextSlide()">&#10095;</button>
+    </div>
+
+    <button onclick="nextPage()" class="btn">Next</button>
+</div>
+
+<script>
+    let selected = "";
+
+    let currentSlide = 0;
+    const slides = document.querySelector('.carousel-slides');
+    const totalSlides = document.querySelectorAll('.carousel-item').length;
+
+    function showSlide(index) {
+        if (index >= totalSlides) {
+            currentSlide = 0;
+        } else if (index < 0) {
+            currentSlide = totalSlides - 1;
+        } else {
+            currentSlide = index;
+        }
+        slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+
+    function nextSlide() {
+        showSlide(currentSlide + 1);
+    }
+
+    function prevSlide() {
+        showSlide(currentSlide - 1);
+    }
+
+    function selectArtist(element, name) { // 'element' is now the clicked <img>
+        selected = name;
+        // Remove selected class from all images
+        document.querySelectorAll('.carousel-item img').forEach(img => img.classList.remove('selected'));
+        // Add selected class to the clicked image
+        element.classList.add('selected');
+        
+        localStorage.setItem("artist", name);
+
+        // Ensure the selected artist is visible in the carousel
+        const clickedIndex = Array.from(document.querySelectorAll('.carousel-item img')).indexOf(element);
+        showSlide(clickedIndex);
+    }
+
+    function nextPage() {
+        if (!selected) { alert("Select artist"); return; }
+        window.location.href = "Ticket.html";
+    }
+
+    // Initialize carousel to show the first slide
+    document.addEventListener('DOMContentLoaded', () => {
+        showSlide(0);
+    });
+</script>
+
+</body>
+</html>

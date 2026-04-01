@@ -1,0 +1,122 @@
+
+
+body {
+    margin: 0;
+    font-family: 'Aptos', sans-serif;
+    background: url("bg.jpg") no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+    padding: 40px 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.glass {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 20px;
+    backdrop-filter: blur(15px);
+    width: 450px; /* Scaled down from 550px */
+    text-align: center;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%; /* Takes full width of .glass */
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.carousel-slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    flex-shrink: 0; /* Prevent items from shrinking */
+    width: 100%; /* Each item takes full width of container */
+    text-align: center;
+    padding: 10px; /* Add some padding around the image */
+    box-sizing: border-box;
+}
+
+.carousel-item img {
+    width: 280px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    transition: border-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer; /* Keep cursor pointer for selection */
+}
+
+.carousel-item img.selected {
+    border-color: #2575fc;
+    box-shadow: 0 0 15px rgba(37, 117, 252, 0.6);
+    transform: scale(1.05);
+}
+
+.carousel-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1.5em;
+    z-index: 10;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.carousel-nav-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-nav-btn.prev {
+    left: 10px;
+}
+
+.carousel-nav-btn.next {
+    right: 10px;
+}
+
+.btn {
+    width: 100%;
+    display: block;
+    margin-top: 15px;
+    padding: 12px;
+    background: #0d1b2a;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.1);
+    filter: brightness(1.1);
+}
+
+.fade {
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}

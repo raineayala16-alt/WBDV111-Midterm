@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tickets</title>
+<link rel="stylesheet" href="Ticket.css">
+</head>
+<body>
+
+<div class="glass fade">
+<h2>Choose Ticket</h2>
+
+<div class="ticket-grid">
+    <label onclick="selectTicket(this, 'VVIP ₱10000')"><span>VVIP</span> <span>₱10,000</span></label>
+    <label onclick="selectTicket(this, 'VIP ₱7000')"><span>VIP</span> <span>₱7,000</span></label>
+    <label onclick="selectTicket(this, 'THE PIT ₱5000')"><span>THE PIT</span> <span>₱5,000</span></label>
+    <label onclick="selectTicket(this, 'PREMIUM ₱3000')"><span>PREMIUM</span> <span>₱3,000</span></label>
+    <label onclick="selectTicket(this, 'REGULAR ₱1500')"><span>REGULAR</span> <span>₱1,500</span></label>
+</div>
+
+<button onclick="nextPage()" class="btn">Next</button>
+
+</div>
+
+<script>
+let selected="";
+
+function selectTicket(element, t){
+selected=t;
+document.querySelectorAll('label').forEach(l => l.classList.remove('selected'));
+element.classList.add('selected');
+
+localStorage.setItem("ticket",t);
+}
+
+function nextPage(){
+if(!selected){alert("Select ticket"); return;}
+window.location="info.html";
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Info</title>
+<link rel="stylesheet" href="info.css">
+</head>
+<body>
+
+<div class="glass fade">
+<h2>Attendee Info</h2>
+
+<select id="quantity" onchange="updateAttendeeFields()" required aria-label="Number of Tickets">
+    <option value="">Select Quantity</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+</select>
+
+<div id="attendeeFieldsContainer">
+    <!-- Dynamic name and age fields will be inserted here -->
+</div>
+
+<button onclick="nextPage()" class="btn">Next</button>
+
+</div>
+
+<script>
+function nextPage(){
+    const quantity = parseInt(document.getElementById("quantity").value);
+
+    if (isNaN(quantity) || quantity < 1) {
+        alert("Please fill in all fields.");
+        return;
+    }
+
+    let attendeesData = [];
+    let allFieldsFilled = true;
+
+    for (let i = 0; i < quantity; i++) {
+        const nameInput = document.getElementById(`name-${i}`);
+        const typeInput = document.getElementById(`type-${i}`);
+
+        if (!nameInput || !nameInput.value.trim() || !typeInput.value) {
+            allFieldsFilled = false;
+            break;
+        }
+        attendeesData.push({
+            name: nameInput.value.trim(),
+            type: typeInput.value
+        });
+    }
+
+    if (!allFieldsFilled) {
+        alert("Please fill in all attendee details (Name and Type).");
+        return;
+    }
+
+    localStorage.setItem("attendeeQuantity", quantity);
+    localStorage.setItem("attendees", JSON.stringify(attendeesData));
+
+    window.location="summary.html";
+}
+
+function updateAttendeeFields() {
+    const quantity = parseInt(document.getElementById("quantity").value);
+    const container = document.getElementById("attendeeFieldsContainer");
+    container.innerHTML = ''; // Clear existing fields
+
+    if (isNaN(quantity) || quantity < 1) {
+        return;
+    }
+
+    for (let i = 0; i < quantity; i++) {
+        if (i > 0) {
+            const hr = document.createElement('hr');
+            hr.style.border = 'none';
+            hr.style.borderTop = '1px solid rgba(255, 255, 255, 0.2)';
+            hr.style.margin = '20px 5px';
+            container.appendChild(hr);
+        }
+
+        if (i === 0) {
+            const label = document.createElement('div');
+            label.innerText = `Please fill accurately`;
+            label.style.textAlign = 'left';
+            label.style.fontSize = '14px';
+            label.style.marginTop = '15px';
+            label.style.marginLeft = '5px';
+            container.appendChild(label);
+        }
+
+        const nameInput = document.createElement('input');
+        nameInput.type = 'text';
+        nameInput.id = `name-${i}`;
+        nameInput.placeholder = `Name`;
+        nameInput.required = true;
+
+        const typeSelect = document.createElement('select');
+        typeSelect.id = `type-${i}`;
+        typeSelect.required = true;
+        typeSelect.innerHTML = `
+            <option value="">Select Type</option>
+            <option value="Adult">Adult</option>
+            <option value="Teen">Teen</option>
+        `;
+
+        container.appendChild(nameInput);
+        container.appendChild(typeSelect);
+    }
+}
+</script>
+
+</body>
+</html>

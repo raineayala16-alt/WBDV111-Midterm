@@ -1,0 +1,47 @@
+body{
+margin:0;
+font-family: 'Aptos', sans-serif;
+background:url("bg.jpg") no-repeat center;
+background-size:cover;
+background-attachment: fixed;
+min-height: 100vh;
+padding: 40px 0;
+box-sizing: border-box;
+display:flex;
+justify-content:center;
+align-items:center;
+color:white;
+text-align:center;
+}
+
+.glass{
+background:rgba(255,255,255,0.1);
+padding:30px;
+border-radius:20px;
+backdrop-filter:blur(15px);
+width:320px;
+box-shadow:0 0 25px rgba(0,0,0,0.3);    
+}
+
+h2 {
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    letter-spacing: 1px;
+}
+
+p {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.qr{
+width:200px;
+margin:20px 0;
+}
+
+.fade{
+animation:fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(20px);}
+to{opacity:1;transform:translateY(0);}
+}
