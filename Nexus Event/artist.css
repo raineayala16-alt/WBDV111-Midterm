@@ -1,5 +1,3 @@
-
-
 body {
     margin: 0;
     font-family: 'Aptos', sans-serif;
@@ -20,14 +18,14 @@ body {
     border-radius: 20px;
     padding: 20px;
     backdrop-filter: blur(15px);
-    width: 450px; /* Scaled down from 550px */
+    width: 450px; 
     text-align: center;
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
 }
 
 .carousel-container {
     position: relative;
-    width: 100%; /* Takes full width of .glass */
+    width: 100%;
     overflow: hidden;
     margin: 10px 0;
 }
@@ -38,10 +36,10 @@ body {
 }
 
 .carousel-item {
-    flex-shrink: 0; /* Prevent items from shrinking */
-    width: 100%; /* Each item takes full width of container */
+    flex-shrink: 0; 
+    width: 100%;
     text-align: center;
-    padding: 10px; /* Add some padding around the image */
+    padding: 10px; 
     box-sizing: border-box;
 }
 
@@ -52,7 +50,7 @@ body {
     border-radius: 12px;
     border: 2px solid rgba(255, 255, 255, 0.2);
     transition: border-color 0.3s ease, transform 0.3s ease;
-    cursor: pointer; /* Keep cursor pointer for selection */
+    cursor: pointer; 
 }
 
 .carousel-item img.selected {
