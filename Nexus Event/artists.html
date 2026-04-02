@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Artists</title>
     <link rel="stylesheet" href="artist.css">
 </head>
@@ -65,16 +62,15 @@
         showSlide(currentSlide - 1);
     }
 
-    function selectArtist(element, name) { // 'element' is now the clicked <img>
+    function selectArtist(element, name) { 
         selected = name;
-        // Remove selected class from all images
+        
         document.querySelectorAll('.carousel-item img').forEach(img => img.classList.remove('selected'));
-        // Add selected class to the clicked image
+        
         element.classList.add('selected');
         
         localStorage.setItem("artist", name);
-
-        // Ensure the selected artist is visible in the carousel
+ 
         const clickedIndex = Array.from(document.querySelectorAll('.carousel-item img')).indexOf(element);
         showSlide(clickedIndex);
     }
@@ -84,7 +80,6 @@
         window.location.href = "Ticket.html";
     }
 
-    // Initialize carousel to show the first slide
     document.addEventListener('DOMContentLoaded', () => {
         showSlide(0);
     });
