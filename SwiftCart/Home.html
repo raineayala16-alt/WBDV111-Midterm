@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Oil Store</title>
+<link rel="stylesheet" href="home.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <img src="logo.png" class="logo">
+
+    <div class="nav">
+        <a href="index.html" class="active">HOME</a>
+        <a href="about.html">ABOUT US</a>
+    </div>
+</div>
+
+<!-- ROW 1 -->
+<div class="container">
+
+    <div class="row-slider" id="row1">
+
+        <!-- ITEM -->
+        <div class="item">
+            <img src="2.png" class="img">
+
+            <div class="card">
+                <div class="title">COCONUT <span>OIL</span></div>
+                <div class="liter">350ml</div>
+                <div class="dash"></div>
+                <div class="price">₱69</div>
+                <a href="CoView.html" class="cart">🛒</a>
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="4.png" class="img">
+
+            <div class="card">
+                <div class="title">COCONUT <span>OIL</span></div>
+                <div class="liter">1 Liter</div>
+                <div class="dash"></div>
+                <div class="price">₱149</div>
+                <a href="CoView.html" class="cart">🛒</a>
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="6.png" class="img">
+
+            <div class="card">
+                <div class="title">COCONUT <span>OIL</span></div>
+                <div class="liter">1.5 Liter</div>
+                <div class="dash"></div>
+                <div class="price">₱239</div>
+                <a href="CoView.html" class="cart">🛒</a>
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="8.png" class="img">
+
+            <div class="card">
+                <div class="title">COCONUT <span>OIL</span></div>
+                <div class="liter">4 Liters</div>
+                <div class="dash"></div>
+                <div class="price">₱619</div>
+                <a href="CoView.html" class="cart">🛒</a>
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="20.png" class="img">
+
+            <div class="card">
+                <div class="title">COCONUT <span>OIL</span></div>
+                <div class="liter">Tin Can</div>
+                <div class="dash"></div>
+                <div class="price">₱3,149</div>
+                <a href="CoView.html" class="cart">🛒</a>
+            </div>
+        </div>
+
+    </div>
+    
+    <button class="slider-nav-btn prev" onclick="slide('row1', -1)">‹</button>
+    <button class="slider-nav-btn next" onclick="slide('row1', 1)">›</button>
+</div>
+
+<!-- ROW 2 -->
+<div class="container">
+
+    <div class="row-slider" id="row2">
+
+        <div class="item">
+            <img src="10.png" class="img">
+
+            <div class="card">
+                <div class="title">PALM <span>OIL</span></div>
+                <div class="liter">350 ml</div>
+                <div class="dash"></div>
+                <div class="price">₱69</div>
+                <a href="PaView.html" class="cart">🛒</a>
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="12.png" class="img">
+
+            <div class="card">
+                <div class="title">PALM <span>OIL</span></div>
+                <div class="liter">1 Liter</div>
+                <div class="dash light"></div>
+                <div class="price">₱99</div>
+                <a href="PaView.html" class="cart">🛒</a>
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="14.png" class="img">
+
+            <div class="card">
+                <div class="title">PALM <span>OIL</span></div>
+                <div class="liter">1.5 Liters</div>
+                <div class="dash"></div>
+                <div class="price">₱149</div>
+                <a href="PaView.html" class="cart">🛒</a>
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="16.png" class="img">
+
+            <div class="card">
+                <div class="title">PALM <span>OIL</span></div>
+                <div class="liter">4 Liters</div>
+                <div class="dash"></div>
+                <div class="price">₱419</div>
+                <a href="PaView.html" class="cart">🛒</a>
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="18.png" class="img">
+
+            <div class="card">
+                <div class="title">PALM <span>OIL</span></div>
+                <div class="liter">Tin</div>
+                <div class="dash"></div>
+                <div class="price">₱1,749</div>
+                <a href="PaView.html" class="cart">🛒</a>
+            </div>
+        </div>
+
+    </div>
+
+    <button class="slider-nav-btn prev" onclick="slide('row2', -1)">‹</button>
+    <button class="slider-nav-btn next" onclick="slide('row2', 1)">›</button>
+</div>
+
+<script>
+function slide(id, direction){
+    const row = document.getElementById(id);
+    const scrollAmount = 920 * direction; 
+    row.scrollBy({
+        left: scrollAmount,
+        behavior: "smooth"
+    });
+}
+</script>
+
+</body>
+</html>

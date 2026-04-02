@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<head>
+<title>View Product</title>
+<link rel="stylesheet" href="view.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <img src="logo.png" class="logo">
+    <a href="home.html" class="back">BACK</a>
+</div>
+
+<!-- MAIN -->
+<div class="container">
+
+    <!-- LEFT IMAGE -->
+    <div class="image-box">
+        <img src="coconut.png">
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="right">
+
+        <div class="title">PALM <span>OIL</span></div>
+
+        <div class="table">
+
+            <!-- ROW -->
+            <div class="row">
+                <div class="size">350ml</div>
+                <div class="price">69</div>
+                <div class="qty">
+                    <button onclick="change(this, -1)">-</button>
+                    <span>0</span>
+                    <button onclick="change(this, 1)">+</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="size">1 Liter</div>
+                <div class="price">99</div>
+                <div class="qty">
+                    <button onclick="change(this, -1)">-</button>
+                    <span>0</span>
+                    <button onclick="change(this, 1)">+</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="size">1.5 Liter</div>
+                <div class="price">149</div>
+                <div class="qty">
+                    <button onclick="change(this, -1)">-</button>
+                    <span>0</span>
+                    <button onclick="change(this, 1)">+</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="size">4 Liters</div>
+                <div class="price">419</div>
+                <div class="qty">
+                    <button onclick="change(this, -1)">-</button>
+                    <span>0</span>
+                    <button onclick="change(this, 1)">+</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="size">Tin Can</div>
+                <div class="price">1749</div>
+                <div class="qty">
+                    <button onclick="change(this, -1)">-</button>
+                    <span>0</span>
+                    <button onclick="change(this, 1)">+</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="dash"></div>
+
+        <!-- BOTTOM -->
+        <div class="bottom">
+            <a href="Info.html" class="cart">🛒</a>
+            <div class="total">₱ <span id="total">0</span></div>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+function change(btn, value){
+    const qty = btn.parentElement.querySelector("span");
+    let count = parseInt(qty.innerText);
+
+    count += value;
+    if(count < 0) count = 0;
+
+    qty.innerText = count;
+    calculate();
+}
+
+function calculate(){
+    let rows = document.querySelectorAll(".row");
+    let total = 0;
+
+    rows.forEach(row => {
+        let price = parseInt(row.querySelector(".price").innerText);
+        let qty = parseInt(row.querySelector("span").innerText);
+        total += price * qty;
+    });
+
+    document.getElementById("total").innerText = total;
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>SwiftCart - Login</title>
+    <link rel="stylesheet" href="LogIn.css">
+    <style>
+        body {
+            background-color: #18251a;
+            background-image: none;
+        }
+        .glass {
+            background: #f5f3f3;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glass fade">
+        <img src="Logo.png" alt="SwiftCart Logo" class="logo">
+        <h2>Welcome</h2>
+
+        <select id="role" onchange="toggleAdminField()" required aria-label="Select Role">
+            <option value="">Select Role</option>
+            <option value="Admin">Admin</option>
+            <option value="User">User</option>
+        </select>
+
+        <input type="password" id="adminCode" placeholder="Admin Code" style="display: none;" aria-label="Admin Code">
+
+        <input type="text" id="username" placeholder="Username" required aria-label="Username">
+        <input type="password" id="password" placeholder="Password" required aria-label="Password">
+
+        <button onclick="nextPage()" class="btn">Next</button>
+    </div>
+
+    <script>
+        function toggleAdminField() {
+            const role = document.getElementById("role").value;
+            const adminField = document.getElementById("adminCode");
+            adminField.style.display = (role === "Admin") ? "block" : "none";
+        }
+
+        function nextPage() {
+            const role = document.getElementById("role").value;
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Basic Validation
+            if (!role || !username || !password) {
+                alert("Please fill in all fields.");
+                return;
+            }
+
+            // Admin Verification
+            if (role === "Admin") {
+                const adminCode = document.getElementById("adminCode").value;
+                if (adminCode !== "ADMIN123") {
+                    alert("Access Denied: Invalid Admin Code.");
+                    return;
+                }
+            }
+
+            // Store user session data
+            localStorage.setItem("role", role);
+            localStorage.setItem("username", username);
+
+            // Redirect to the home page
+            window.location.href = "home.html";
+        }
+    </script>
+</body>
+</html>

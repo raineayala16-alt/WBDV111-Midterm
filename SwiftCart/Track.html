@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<head>
+  <title>Track Delivery</title>
+  <link rel="stylesheet" href="track.css">
+</head>
+<body>
+
+  <div class="header">
+    <img src="logo.png" class="logo" style="width: 120px;">
+    <a href="home.html" class="back" style="text-decoration: none; color: white; font-weight: bold;">BACK</a>
+  </div>
+
+  <div class="container">
+    <div class="title-box">
+      <h1>TRACK YOUR DELIVERY LIVE</h1>
+      <p>We ensure your package is on time</p>
+    </div>
+
+    <div class="content">
+      <!-- MAP -->
+      <div class="map-box">
+        <!-- Replace with your map.webp -->
+        <img src="map.webp" alt="Map">
+      </div>
+
+      <!-- PERSONAL INFO -->
+      <div class="info-box">
+        <h3>PERSONAL INFORMATION</h3>
+        <p><strong>NAME</strong></p>
+        <p id="display-name">Loading...</p>
+
+        <p><strong>CONTACT NUMBER</strong></p>
+        <p id="display-contact">Loading...</p>
+
+        <p><strong>EMAIL ADDRESS</strong></p>
+        <p id="display-email">Loading...</p>
+
+        <p><strong>ADDRESS</strong></p>
+        <p id="display-address">Loading...</p>
+      </div>
+
+      <!-- DELIVERY INFO -->
+      <div class="info-box">
+        <h3>DELIVERY INFORMATION</h3>
+        <p><strong>DATE OF DELIVERY</strong></p>
+        <p>09/22/2026</p>
+
+        <p><strong>APPROXIMATELY TIME</strong></p>
+        <p>10:00 AM</p>
+
+        <p><strong>DRIVER INFO</strong></p>
+        <p>Luis Alexander Ayala</p>
+        <p>WEB 601</p>
+        <p>L3100 - White</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.onload = function() {
+        const dataString = localStorage.getItem('shippingInfo');
+        
+        if (dataString) {
+            const data = JSON.parse(dataString);
+            
+            // Update Name
+            document.getElementById('display-name').innerText = 
+                `${data.lastName.toUpperCase()}, ${data.firstName.toUpperCase()} ${data.middleName.toUpperCase()}`;
+            
+            // Update Contact and Email
+            document.getElementById('display-contact').innerText = data.contact;
+            document.getElementById('display-email').innerText = data.email;
+            
+            // Update Address using the requested format
+            document.getElementById('display-address').innerText = 
+                `${data.houseNum} - ${data.floor || 'N/A'} - ${data.street} - ${data.barangay} - ${data.city} - ${data.postal}`;
+        }
+    };
+  </script>
+</body>
+</html>

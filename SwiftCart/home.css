@@ -1,0 +1,154 @@
+body{
+    margin:0;
+    font-family: Arial;
+    background: linear-gradient(to right, #0b2a1c, #081d14);
+}
+
+/* NAVBAR */
+.navbar{
+    margin:25px;
+    padding:25px;
+    background:#cfcfcf;
+    border-radius:25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    width:150px;
+}
+
+.nav a{
+    margin-left:25px;
+    text-decoration:none;
+    font-weight:bold;
+    color:#eee;
+}
+
+.nav .active{
+    color:#2b1a36;
+}
+
+/* CONTAINER */
+.container{
+    margin:25px;
+    padding:40px; /* Increased padding for more breathing room */
+    background:#cfcfcf;
+    border-radius:25px;
+    position:relative;
+    overflow:hidden;
+}
+
+/* ROW */
+.row-slider{
+    display:flex;
+    flex-direction: row; /* Restored horizontal stacking */
+    gap:60px; /* Increased gap between product items */
+    overflow:hidden;
+    padding: 10px;
+}
+
+/* ITEM (image + card) */
+.item{
+    display:flex;
+    gap:20px;
+    align-items: center; /* Vertically centers the card next to the large image */
+}
+
+/* IMAGE BOX */
+.img{
+    width:200px;
+    height:200px;
+    background: white; /* Changed to white for a cleaner product look */
+    padding: 10px;
+    border-radius:10px;
+    object-fit: contain;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Added shadow for depth */
+}
+
+/* CARD */
+.card{
+    width:180px;
+    background:#e6e6e6;
+    border-radius:20px;
+    padding:15px;
+    text-align:center;
+}
+
+/* TITLE */
+.title{
+    background:#0b2a1c;
+    color:white;
+    padding:10px;
+    border-radius:20px;
+    font-weight:bold;
+}
+
+.title span{
+    font-size:11px;
+}
+
+/* TEXT */
+.liter{
+    margin:10px 0;
+    font-weight:bold;
+}
+
+/* DASH LINE */
+.dash{
+    border-top:3px dashed black;
+    margin:8px 0;
+}
+
+.dash.light{
+    border-top:3px dashed #ddd;
+}
+
+/* PRICE */
+.price{
+    background:#6f756f;
+    color:white;
+    padding:7px;
+    border-radius:20px;
+    width:100px;
+    margin:10px auto;
+}
+
+/* CART */
+.cart{
+    display:block;
+    background:#ddd;
+    padding:10px;
+    border-radius:12px;
+    text-decoration:none;
+    font-size:18px;
+}
+
+/* NEXT BUTTON */
+/* Common styles for slider navigation buttons (prev/next) */
+.slider-nav-btn {
+    position:absolute;
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    border:none;
+    background:#0b2a1c;
+    color: white;
+    font-size:30px;
+    cursor:pointer;
+    display: flex; /* Use flexbox to center the arrow */
+    justify-content: center;
+    align-items: center;
+    padding: 0; /* Remove default button padding */
+    line-height: 1; /* Adjust line height for better vertical centering */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Optional: subtle shadow for depth */
+    transition: background 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.slider-nav-btn:hover {
+    background: #c0b3c8; /* Slightly darker background on hover */
+}
+
+.next { right: 30px; bottom: 30px; } /* Further from corner to clear rounded edge */
+.prev { right: 30px; bottom: 100px; } /* 15px gap between buttons (30 + 55 + 15) */
