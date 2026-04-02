@@ -37,11 +37,9 @@ attendees.forEach((person, index) => {
     `;
 });
 
-// Calculate and display total cost
-const ticketString = localStorage.getItem("ticket"); // e.g., "VVIP ₱10,000"
+const ticketString = localStorage.getItem("ticket");
 const quantity = parseInt(localStorage.getItem("attendeeQuantity") || "1");
 
-// Extract price from ticket string (e.g., "₱10,000" -> 10000)
 const priceMatch = ticketString.match(/₱([\d,]+)/);
 let ticketPrice = 0;
 if (priceMatch && priceMatch[1]) {
