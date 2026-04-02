@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html lang="en">
 <head>
     <title>Nexus Events - Login</title>
     <link rel="stylesheet" href="LogIn.css">
@@ -35,14 +34,12 @@
             const role = document.getElementById("role").value;
             const username = document.getElementById("username").value;
             const password = document.getElementById("password").value;
-
-            // Basic Validation
+            
             if (!role || !username || !password) {
                 alert("Please fill in all fields.");
                 return;
             }
 
-            // Admin Verification
             if (role === "Admin") {
                 const adminCode = document.getElementById("adminCode").value;
                 if (adminCode !== "ADMIN123") {
@@ -51,11 +48,9 @@
                 }
             }
 
-            // Store user session data
             localStorage.setItem("role", role);
             localStorage.setItem("username", username);
 
-            // Redirect to the artists selection page
             window.location.href = "artists.html";
         }
     </script>
