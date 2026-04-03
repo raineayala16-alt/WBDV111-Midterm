@@ -1,0 +1,311 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'DM Sans', sans-serif;
+}
+
+body {
+    background: #f4f6f7;
+    color: #2c3e50;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between; /* Re-added for logo and title */
+    align-items: center;
+    padding: 10px 30px;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    height: 60px;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 200px;
+}
+
+.brand h1 {
+    font-size: 26px;
+}
+
+.brand span {
+    color: #4bb6a5;
+}
+
+.nav-title {
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.nav-title span {
+    color: #4bb6a5;
+}
+
+.container {
+    display: flex;
+    min-height: calc(100vh - 60px);
+}
+
+.sidebar {
+    width: 80px;
+    background: #fff;
+    border-right: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    gap: 25px;
+}
+
+.icon {
+    position: relative;
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.icon.active {
+    background: transparent;
+}
+
+.icon.active::before {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 4px;
+    background: #53a9a2;
+    border-radius: 10px;
+}
+
+.icon img {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+}
+
+.content {
+    padding: 40px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.content h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Left card takes 1 part, right section takes 2 parts */
+    gap: 30px;
+}
+
+/* LEFT CARD */
+.left-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.doctor-img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.role {
+    color: #4bb6a5;
+    letter-spacing: 1px;
+}
+
+.specialty {
+    margin-top: 15px;
+    padding: 12px;
+    border: 2px solid #2c3e50;
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+/* RIGHT */
+.right {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.calendar-box {
+    background: #fff;
+    border-radius: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+}
+
+.calendar-box h3 {
+    margin-bottom: 15px;
+}
+
+.calendar-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.calendar-header {
+    font-weight: bold;
+    font-size: 20px;
+    color: #334b68;
+    margin-bottom: 10px;
+}
+
+.calendar-days-header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-weight: bold;
+    color: #6c7a89;
+    font-size: 14px;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    width: 100%;
+}
+
+.calendar-day {
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.legend {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.green {
+    width: 12px;
+    height: 12px;
+    background: #53a9a2;
+    display: inline-block;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.calendar-day.available {
+    background: #e8f5f3;
+    color: #53a9a2;
+}
+
+.calendar-day.busy {
+    background: #fceaea;
+    color: #e06666;
+}
+
+.calendar-day.selected {
+    background: #53a9a2 !important;
+    color: #fff !important;
+}
+
+.red {
+    width: 12px;
+    height: 12px;
+    background: #e06666;
+    display: inline-block;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+/* BOTTOM */
+.bottom {
+    display: flex;
+    gap: 20px;
+}
+
+.time-box {
+    flex: 1;
+    background: #fff;
+    border-radius: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+}
+
+.time-select {
+    width: 100%;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.confirm-box {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.confirm-box p {
+    background: #fff;
+    padding: 15px;
+    border-radius: 15px;
+    border: 1px solid #ddd;
+}
+
+.confirm-box button {
+    margin-top: 15px;
+    padding: 15px;
+    border: none;
+    border-radius: 25px;
+    background: #2c3e50;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: auto;
+    padding-top: 30px;
+}
+
+.back-btn {
+    padding: 10px 40px;
+    border: none;
+    border-radius: 20px;
+    background: #2c3e50;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.back-btn:hover {
+    background: #1a252f;
+}

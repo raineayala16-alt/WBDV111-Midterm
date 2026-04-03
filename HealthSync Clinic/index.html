@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<head>
+<title>Login</title>
+<link rel="stylesheet" href="LogIn.css">
+</head>
+<body>
+
+<div class="main-layout">
+    <div class="logo-side">
+        <img src="logo.png" alt="Logo">
+    </div>
+
+    <form class="container" onsubmit="validateLogin(event)">
+        <h1>Welcome</h1>
+
+        <label for="role">Login as</label>
+        <select id="role" name="role" onchange="togglePasswordVisibility()" required>
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
+        </select>
+
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email" placeholder="Email or username" required>
+
+        <label for="password" id="password-label" style="display: none;">Admin Password</label>
+        <input type="password" id="password" placeholder="••••••••" style="display: none;">
+
+        <button type="submit" class="continue">Continue</button>
+    </form>
+</div>
+
+<script>
+function togglePasswordVisibility() {
+    const role = document.getElementById('role').value;
+    const passwordLabel = document.getElementById('password-label');
+    const passwordInput = document.getElementById('password');
+    
+    const isVisible = (role === 'admin') ? 'block' : 'none';
+    passwordLabel.style.display = isVisible;
+    passwordInput.style.display = isVisible;
+    passwordInput.required = (role === 'admin');
+}
+
+function validateLogin(event) {
+    event.preventDefault();
+    const role = document.getElementById('role').value;
+    const password = document.getElementById('password').value;
+
+    if (role === 'admin') {
+        if (password === 'ADMIN123') {
+            window.location.href = 'dash.html';
+        } else {
+            alert('Incorrect Admin Password!');
+        }
+    } else {
+        window.location.href = 'dash.html';
+    }
+}
+
+window.onload = togglePasswordVisibility;
+</script>
+
+</body>
+</html>

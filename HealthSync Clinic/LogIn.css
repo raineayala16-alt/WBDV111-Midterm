@@ -1,0 +1,107 @@
+:root {
+    --h1-size: clamp(2.5rem, 8vw, 4.5rem);
+    --logo-size: clamp(250px, 40vw, 450px);
+}
+
+body {
+    background-color: #f9f9f9;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.main-layout {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    max-width: 100%;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+}
+
+.container {
+    background: #FFFFFF;
+    padding: 40px 60px;
+    flex: 1;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-side {
+    background: #FFFFFF;
+    padding: 40px 60px;
+    flex: 1;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid #eee;
+}
+
+.logo-side img {
+    width: var(--logo-size);
+    height: auto;
+}
+
+h1 {
+    font-size: var(--h1-size);
+    text-transform: uppercase;
+    margin: 0 0 30px 0;
+    letter-spacing: -1px;
+    color: #334b68;
+}
+label {
+    display: block;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: #334b68;
+}
+
+select, input {
+    width: 100%;
+    padding: 18px;
+    margin-bottom: 24px;
+    background: #ffffff;
+    border: 1px solid #727272;
+    border-radius: 4px;
+    color: #333;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+select:focus, input:focus { 
+    border-color: #334b68; 
+    outline: none; 
+    box-shadow: 0 0 5px rgba(51, 75, 104, 0.3);
+}
+
+.continue {
+    width: 100%;
+    background: #334b68;
+    color: white;
+    padding: 18px;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.continue:hover {
+    background: #25374d;
+}

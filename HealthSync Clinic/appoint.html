@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<head>
+<title>Appointment</title>
+<link rel="stylesheet" href="appoint.css">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="topbar">
+    <div class="logo-section">
+        <img src="home.png" class="logo">
+    </div>
+    <div class="nav-title">APPOINT<span>MENT</span></div>
+</header>
+
+<div class="container">
+
+    <aside class="sidebar">
+        <div class="icon" onclick="window.location.href='dash.html'"><img src="dash.png" alt="Dashboard"></div>
+        <div class="icon" onclick="window.location.href='profile.html'"><img src="docs.png" alt="Doctors"></div>
+        <div class="icon active" onclick="window.location.href='appoint.html'"><img src="appoint.png" alt="Appointments"></div>
+        <div class="icon" onclick="window.location.href='location.html'"><img src="location.png" alt="Location"></div>
+        <div class="icon" onclick="window.location.href='about.html'"><img src="about.png" alt="About"></div>
+    </aside>
+
+    <main class="content">
+
+        <h2>Please fill in all the details for your appointment.</h2>
+
+        <div class="grid">
+
+            <!-- LEFT -->
+            <div class="left-card">
+                <img src="d1.jfif" class="doctor-img">
+                <h3 class="role">DOCTOR</h3>
+                <h2>Auston Clifford</h2>
+
+                <div class="specialty">Dermatologist</div>
+            </div>
+
+            <div class="right">
+
+                <div class="calendar-box">
+                    <h3>DOCTOR’S CALENDAR AVAILABILITY</h3>
+
+                    <div class="calendar-wrapper">
+                        <div class="calendar-header">
+                            <span id="month-name">April 2026</span>
+                        </div>
+                        <div class="calendar-days-header">
+                            <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+                        </div>
+                        <div id="calendar-grid" class="calendar-grid"></div>
+
+                        <div class="legend">
+                            <div><span class="green"></span> Available</div>
+                            <div><span class="red"></span> Not Available</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bottom">
+
+                    <div class="time-box">
+                        <h3>TIME</h3>
+
+                        <select class="time-select">
+                            <option>9:00 AM</option>
+                            <option>10:00 AM</option>
+                            <option>11:00 AM</option>
+                            <option>12:00 PM</option>
+                            <option>1:00 PM</option>
+                            <option>2:00 PM</option>
+                            <option>3:00 PM</option>
+                            <option>4:00 PM</option>
+                            <option>5:00 PM</option>
+                            <option>6:00 PM</option>
+                            <option>7:00 PM</option>
+                            <option>8:00 PM</option>
+                            <option>9:00 PM</option>
+                            <option>10:00 PM</option>
+                            <option>11:00 PM</option>
+                            <option>12:00 AM</option>
+                        </select>
+                    </div>
+
+                    <div class="confirm-box">
+                        <p>Kindly ensure that all the provided details are accurate and complete.</p>
+                        <button onclick="window.location.href='confirm.html'">CONFIRM</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="footer">
+            <button class="back-btn" onclick="window.location.href='dash.html'">BACK</button>
+        </div>
+
+    </main>
+
+</div>
+
+<script>
+    function renderCalendar() {
+        const grid = document.getElementById('calendar-grid');
+        const daysInMonth = 30; 
+        const startingDay = 3; 
+
+        for (let i = 0; i < startingDay; i++) {
+            const empty = document.createElement('div');
+            grid.appendChild(empty);
+        }
+
+        for (let i = 1; i <= daysInMonth; i++) {
+            const day = document.createElement('div');
+            day.className = 'calendar-day';
+            
+            const dayOfWeek = (startingDay + i - 1) % 7;
+            const isBusy = dayOfWeek === 0 || dayOfWeek === 6;
+            day.classList.add(isBusy ? 'busy' : 'available');
+            
+            day.innerText = i;
+
+            if (!isBusy) {
+                day.onclick = function() {
+                    document.querySelectorAll('.calendar-day.selected').forEach(el => {
+                        el.classList.remove('selected');
+                    });
+                    this.classList.add('selected');
+                };
+            }
+            grid.appendChild(day);
+        }
+    }
+
+    function setActiveIcon(clickedIcon) {
+        const allIcons = document.querySelectorAll('.sidebar .icon');
+        allIcons.forEach(icon => {
+            icon.classList.remove('active');
+        });
+        clickedIcon.classList.add('active');
+    }
+
+    window.onload = function() {
+        renderCalendar();
+
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('name')) {
+            document.querySelector('.left-card h2').innerText = params.get('name');
+            document.querySelector('.left-card .role').innerText = params.get('role');
+            document.querySelector('.left-card .specialty').innerText = params.get('specialty');
+            document.querySelector('.left-card .doctor-img').src = params.get('img');
+        }
+    };
+</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<head>
+<title>HealthSync Clinic</title>
+<link rel="stylesheet" href="dash.css">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="topbar">
+    <div class="logo-section">
+        <img src="home.png" class="logo">
+    </div>
+    <div class="dashboard">DASH<span>BOARD</span></div>
+</header>
+
+<div class="container">
+
+    <aside class="sidebar">
+        <div class="icon active" onclick="window.location.href='dash.html'"><img src="dash.png" alt="Dashboard"></div>
+        <div class="icon" onclick="window.location.href='profile.html'"><img src="docs.png" alt="Profile"></div>
+        <div class="icon" onclick="window.location.href='appoint.html'"><img src="appoint.png" alt="Appointments"></div>
+        <div class="icon" onclick="window.location.href='location.html'"><img src="location.png" alt="Location"></div>
+        <div class="icon" onclick="window.location.href='about.html'"><img src="about.png" alt="About"></div>
+    </aside>
+
+    <main class="content">
+        <h2>Ready to schedule your appointment?</h2>
+        <p class="subtitle">Please select the doctor you need.</p>
+
+        <div class="grid">
+
+            <div class="left">
+                <button>Dermatologist</button>
+                <button>Psychiatrist</button>
+                <button>Pediatrician </button>
+                <button>Cardiologist </button>            
+            </div>
+
+            <div class="right">
+                <p>
+                    A dermatologist is a doctor who specializes in diagnosing and treating conditions related to the skin, hair, and nails. They manage issues such as acne, eczema, psoriasis, skin infections, skin cancer, and cosmetic concerns like scars and wrinkles.
+                </p>
+
+                <p>
+                    A psychiatrist is a medical doctor who specializes in mental health. They diagnose, treat, and help prevent mental, emotional, and behavioral disorders. They can prescribe medication, provide psychotherapy, and recommend other treatments for conditions like depression, anxiety, schizophrenia, and bipolar disorder.
+                </p>
+
+                <p>
+                    A pediatrician is a doctor who specializes in the health and medical care of infants, children, and adolescents. They monitor growth and development, treat illnesses, administer vaccinations, and provide guidance on nutrition and safety.
+                </p>
+
+                <p>
+                    A cardiologist is a doctor who specializes in diagnosing and treating diseases of the heart and blood vessels. They manage conditions such as coronary artery disease, heart failure, arrhythmias, and hypertension, often using tests like echocardiograms and stress tests, and performing procedures like angioplasty.
+                </p>
+            </div>
+
+        </div>
+    </main>
+
+</div>
+
+<script>
+    function setActiveIcon(clickedIcon) {
+        const allIcons = document.querySelectorAll('.sidebar .icon');
+        allIcons.forEach(icon => {
+            icon.classList.remove('active');
+        });
+        clickedIcon.classList.add('active');
+    }
+</script>
+</body>
+</html>
