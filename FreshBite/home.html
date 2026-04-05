@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FreshBite</title>
+    <link rel="stylesheet" href="home.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <img src="logo.png" class="logo">
+    <nav>
+        <a href="meals.html" class="active">MEALS</a>
+        <a href="benefits.html">BENEFITS</a>
+        <a href="bills.html">BILLS</a>
+        <a href="plans.html">PLANS</a>
+    </nav>
+</header>
+
+<main>
+    <div class="order">
+        <h2>Your Order</h2>
+        <div id="orderList"></div>
+        <div class="line"></div>
+        <h3>Total: $<span id="total">0.00</span></h3>
+    </div>
+
+    <div class="menu">
+        <h1>Featured Dish</h1>
+
+        <div class="grid">
+
+            <div class="card" onclick="go('cs.html')">
+                <img src="cs.webp">
+                <div class="info">
+                    <h4>Cucumber Salad</h4>
+                    <div class="bottom">
+                        <div class="stars">★★★</div>
+                        <button onclick="add(event,'Cucumber Salad',4.50)">$4.50</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" onclick="go('sfs.html')">
+                <img src="gps.jpg">
+                <div class="info">
+                    <h4>Grilled Potato Salad with Scallion Vinaigrette</h4>
+                    <div class="bottom">
+                        <div class="stars">★★★★</div>
+                        <button onclick="add(event,'Grilled Potato Salad with Scallion Vinaigrette',5.40)">$5.40</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" onclick="go('gz.html')">
+                <img src="rs.jpg">
+                <div class="info">
+                    <h4>Radish Salad</h4>
+                    <div class="bottom">
+                        <div class="stars">★★★</div>
+                        <button onclick="add(event,'Radish Salad',3.80)">$3.80</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" onclick="go('amps.html')">
+                <img src="bsg.jpg">
+                <div class="info">
+                    <h4>Beet Salad with Goat Cheese and Balsamic</h4>
+                    <div class="bottom">
+                        <div class="stars">★★★★★</div>
+                        <button onclick="add(event,'Beet Salad with Goat Cheese and Balsamic',5.30)">$5.30</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>
+
+<script>
+let cart = []
+
+function go(link){
+    window.location.href = link
+}
+
+function add(e,name,price){
+    e.stopPropagation()
+    let item = cart.find(i=>i.name===name)
+    if(item){ item.qty++ }
+    else{ cart.push({name,price,qty:1}) }
+    render()
+}
+
+function remove(name){
+    let item = cart.find(i=>i.name===name)
+    if(item.qty>1){ item.qty-- }
+    else{ cart = cart.filter(i=>i.name!==name) }
+    render()
+}
+
+function render(){
+    let list = document.getElementById("orderList")
+    let total = 0
+    list.innerHTML = ""
+
+    cart.forEach(i=>{
+        total += i.price * i.qty
+        list.innerHTML += `
+        <div class="item">
+            <span>${i.name} x${i.qty}</span>
+            <button onclick="remove('${i.name}')">-</button>
+        </div>`
+    })
+
+    document.getElementById("total").innerText = total.toFixed(2)
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,167 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'DM Sans', sans-serif;
+}
+
+body {
+  background: #f5f4f1;
+  color: #123c35;
+  padding: 5px 60px 40px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.logo{
+    height:180px;
+}
+
+
+.fresh { color: #123c35; }
+.bite { color: #f28c28; }
+
+nav{
+    border:1px solid #1b3a36;
+    padding:10px 25px;
+    border-radius:40px;
+    background:#fff;
+}
+
+nav a{
+    margin:0 15px;
+    text-decoration:none;
+    color:#f68b1f;
+    font-weight:600;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #1b3a36;
+}
+
+nav .active{
+    border-bottom:3px solid #1b3a36;
+}
+
+.title {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  font-size: 32px;
+}
+
+.plans {
+  display: flex;
+  gap: 40px;
+}
+
+.card {
+  position: relative;
+  background: white;
+  border: 1.5px solid #123c35;
+  border-radius: 25px;
+  padding: 30px;
+  width: 450px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.card.active {
+  transform: translateY(-15px) scale(1.03);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #123c35;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* Text */
+.card h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.price {
+  font-size: 64px;
+  color: #f28c28;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.card p {
+  font-size: 18px;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+/* Proceed Button */
+.proceed-container {
+  margin-top: 40px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.proceed-container.show {
+  display: flex;
+}
+
+.proceed-btn {
+  background: #f28c28;
+  color: white;
+  padding: 15px 40px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.proceed-btn:hover {
+  opacity: 0.9;
+}
+
+.back-link {
+  color: #123c35;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.back-link:hover {
+  border-bottom-color: #123c35;
+}
+
+.next-btn {
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #f28c28;
+  color: white;
+  border: none;
+  font-size: 32px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.next-btn:hover {
+  opacity: 0.9;
+}
