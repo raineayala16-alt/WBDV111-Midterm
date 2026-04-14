@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<head>
+<title>ForgeFit - Subscription</title>
+<link rel="stylesheet" href="service1.css">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="Logo.png" alt="ForgeFit Logo">
+    </div>
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="service.html" class="active">Service</a>
+        <a href="#">Sign Up</a>
+    </nav>
+</header>
+
+<h1 class="title">Thankyou for choosing us!</h1>
+
+<main class="container">
+
+    <div class="card plan">
+        <div class="top">
+            <h2 id="plan-name"><span class="big" id="plan-num">1</span> <span id="plan-unit">Year</span></h2>
+            <div class="price" id="plan-price">$479</div>
+        </div>
+
+        <ul id="plan-list">
+            <li>Unlimited access to gym facilities 24/7</li>
+            <li>Unlimited participation in all fitness classes</li>
+            <li>Valid for 365 days</li>
+            <li>Priority booking for classes and training sessions</li>
+            <li>Access to exclusive facilities</li>
+            <li>Free personal training session</li>
+            <li>Discounts on merchandise and supplements</li>
+            <li>Long-term support for fitness goals</li>
+        </ul>
+    </div>
+
+    <form class="card form" action="confirm.html">
+
+        <h3>Please provide information we need.</h3>
+
+        <label>Name</label>
+        <input type="text" required>
+
+        <label>Email</label>
+        <input type="email" required>
+
+        <div class="row">
+            <div>
+                <label>Age</label>
+                <select required>
+                    <option value="">Select</option>
+                    <option>12</option>
+                    <option>13</option>
+                    <option>14</option>
+                    <option>15</option>
+                    <option>16</option>
+                    <option>17</option>
+                    <option>18</option>
+                    <option>19</option>
+                    <option>20</option>
+                    <option>21</option>
+                    <option>22</option>
+                    <option>23</option>
+                    <option>24</option>
+                    <option>25</option>
+                    <option>26</option>
+                    <option>27</option>
+                    <option>28</option>
+                    <option>29</option>
+                    <option>30+</option>
+                    <option>40+</option>
+                    <option>50+</option>
+                    <option>60+</option>
+                </select>
+            </div>
+
+            <div>
+                <label>Gender</label>
+                <select required>
+                    <option value="">Select</option>
+                    <option>Women</option>
+                    <option>Men</option>
+                </select>
+            </div>
+        </div>
+
+        <p class="question">Is this your first time subscribing to a gym?</p>
+
+        <div class="choice">
+            <button type="button" class="toggle">YES</button>
+            <button type="button" class="toggle">NO</button>
+        </div>
+
+        <button type="submit" class="next">NEXT</button>
+
+    </form>
+
+    <div class="side">
+        <div class="card rate">
+            <h2>Rate Us</h2>
+            <div class="stars">
+                <span data-value="1">&#9733;</span>
+                <span data-value="2">&#9733;</span>
+                <span data-value="3">&#9733;</span>
+                <span data-value="4">&#9733;</span>
+                <span data-value="5">&#9733;</span>
+            </div>
+        </div>
+
+        <div class="card thanks">
+            <p>Thankyou for the Honest Review!</p>
+        </div>
+    </div>
+
+</main>
+
+<script>
+const planData = {
+    '3': {
+        num: '3',
+        unit: 'Months',
+        price: '$149',
+        features: ['Access to gym facilities', 'Participation in selected fitness classes', 'Valid for 90 days from purchase']
+    },
+    '6': {
+        num: '6',
+        unit: 'Months',
+        price: '$249',
+        features: ['Unlimited access to gym facilities', 'Participation in most fitness classes', 'Access to some premium classes', 'Valid for 180 days', 'Cost-effective for medium-term commitment']
+    },
+    '12': {
+        num: '1',
+        unit: 'Year',
+        price: '$479',
+        features: ['Unlimited access to gym facilities 24/7', 'Unlimited participation in all fitness classes', 'Valid for 365 days', 'Priority booking for classes and training sessions', 'Access to exclusive facilities', 'Free personal training session', 'Discounts on merchandise and supplements', 'Long-term support for fitness goals']
+    }
+};
+
+const urlParams = new URLSearchParams(window.location.search);
+const selectedPlan = urlParams.get('plan') || '12';
+
+if (planData[selectedPlan]) {
+    const data = planData[selectedPlan];
+    document.getElementById('plan-num').textContent = data.num;
+    document.getElementById('plan-unit').textContent = data.unit;
+    document.getElementById('plan-price').textContent = data.price;
+    
+    const listContainer = document.getElementById('plan-list');
+    listContainer.innerHTML = ''; // Clear default list
+    data.features.forEach(feature => {
+        const li = document.createElement('li');
+        li.textContent = feature;
+        listContainer.appendChild(li);
+    });
+}
+
+const toggles = document.querySelectorAll('.toggle');
+toggles.forEach(btn => {
+    btn.addEventListener('click', () => {
+        toggles.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+    });
+});
+
+const stars = document.querySelectorAll('.stars span');
+stars.forEach(star => {
+    star.addEventListener('click', () => {
+        let val = star.getAttribute('data-value');
+        stars.forEach(s => {
+            if (s.getAttribute('data-value') <= val) {
+                s.classList.add('active');
+            } else {
+                s.classList.remove('active');
+            }
+        });
+    });
+});
+</script>
+
+</body>
+</html>

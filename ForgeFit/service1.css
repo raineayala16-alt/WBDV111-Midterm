@@ -1,0 +1,186 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'DM Sans', sans-serif;
+}
+
+body{
+    background-image: url('bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #fff;
+}
+
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+    padding:30px 60px;
+}
+
+.logo img {
+    width: 180px;
+    height: auto;
+    display: block;
+}
+
+nav{
+    background:#e5e5e5;
+    padding:10px 25px;
+    border-radius:20px;
+}
+
+nav a{
+    margin:0 15px;
+    text-decoration:none;
+    color: #1f1f1f;
+}
+
+nav .active{
+    border-bottom:3px solid #f5a623;
+}
+
+.title{
+    padding:0 60px;
+    margin-bottom:20px;
+    font-size:40px;
+}
+
+.container{
+    display:grid;
+    grid-template-columns:1.2fr 1.5fr 1fr;
+    gap:25px;
+    padding:0 60px 60px;
+}
+
+.card{
+    border:1px solid rgba(255,255,255,0.4);
+    padding:25px;
+    background:rgba(0,0,0,0.4);
+}
+
+.plan .top{
+    display:flex;
+    justify-content:space-between;
+}
+
+.big{
+    font-size:60px;
+}
+
+.price{
+    border:1px solid #fff;
+    padding:10px 20px;
+    border-radius:10px;
+    font-size: 60px;
+    font-weight: 700;
+}
+
+ul{
+    list-style:none;
+    margin-top:20px;
+}
+
+ul li{
+    margin:10px 0;
+    padding-left:25px;
+    position:relative;
+}
+
+ul li::before{
+    content:"✔";
+    position:absolute;
+    left:0;
+}
+
+.form h3{
+    margin-bottom:15px;
+}
+
+input, select{
+    width:100%;
+    padding:10px;
+    margin-bottom:15px;
+    border:2px solid #f5a623;
+    background:#ddd;
+}
+
+.row{
+    display:flex;
+    gap:10px;
+}
+
+.question{
+    margin:10px 0;
+}
+
+.choice{
+    display:flex;
+    gap:15px;
+    margin-bottom:20px;
+}
+
+.toggle{
+    padding:10px 25px;
+    border:2px solid #f5a623;
+    background:#ddd;
+    cursor:pointer;
+}
+
+.toggle.active{
+    background:#f5a623;
+}
+
+.next{
+    width:100%;
+    padding:12px;
+    background:#f5a623;
+    border:none;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.side{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.rate {
+    min-height: 372px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.rate h2{
+    font-size: 60px;
+    width: min-content;
+    line-height: 0.8;
+    text-transform: uppercase;
+}
+
+.rate h2::first-line {
+    font-size: 120px;
+}
+
+.stars{
+    font-size:30px;
+    margin-top:20px;
+}
+
+.stars span{
+    cursor:pointer;
+    color:#fff;
+}
+
+.stars span.active{
+    color:#f5a623;
+}
+
+.thanks{
+    text-align:center;
+}
