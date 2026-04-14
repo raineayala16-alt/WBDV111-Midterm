@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+<title>Student Info</title>
+<link rel="stylesheet" href="login.css" />
+</head>
+<body>
+<div class="container">
+  <div class="logo-section">
+    <img src="Logo.png" class="logo" alt="ForgeFit Logo"/>
+  </div>
+  <div class="form-section">
+    <h2>WELCOME</h2>
+    <form action="home.html" method="get">
+      <label for="Name">Name</label>
+      <input type="text" id="Name" name="Name" required />
+
+      <label for="course">Select</label>
+      <select id="course" name="course" required>
+        <option value="" disabled selected>Select</option>
+        <option value="Adult">Adult</option> 
+        <option value="Teen">Teen</option>
+      </select>
+
+      <label for="year">Are you new here?</label>
+      <select id="year" name="year" required>
+        <option value="" disabled selected>Yes/No</option>
+        <option value="yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+
+      <label for="assist">Do you need assist?</label>
+      <select id="assist" name="assist" required>
+        <option value="" disabled selected>Yes/No</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+
+      <button type="submit" class="next-button">&#8594;</button>
+    </form>
+  </div>
+</div>
+</body>
+</html>

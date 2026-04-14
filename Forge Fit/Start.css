@@ -1,0 +1,73 @@
+:root {
+    --primary-color: #0f2b2b;
+    --secondary-color: white;
+    --border-radius-large: 25px;
+    --font-family-base: 'Aptos', sans-serif;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    background-image: url('bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: #12152b; 
+    font-family: var(--font-family-base);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: var(--secondary-color);
+    text-align: center;
+    position: relative;
+}
+
+.logo {
+    width: 350px; 
+    height: auto;
+    margin-bottom: 0px;
+    filter: drop-shadow(5px 5px 10px #000000);
+}
+
+.title {
+    font-size: 1.0rem;
+    letter-spacing: 2px;
+    margin: 0;
+    filter: drop-shadow(5px 5px 10px #000000);
+}
+
+.subtitle {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0;
+    filter: drop-shadow(5px 5px 10px #000000);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.get-started {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 15px 50px;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    text-decoration: none;
+    border-radius: var(--border-radius-large);
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    cursor: pointer;
+}
+
+.get-started:hover {
+    transform: scale(1.05);
+    background-color: #f0f0f0;
+}
