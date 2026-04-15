@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<head>
+<title>TTV Home</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="home.css">
+</head>
+
+<body>
+
+<header class="navbar">
+    <img src="logo1.png" class="logo">
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Our Watches</a>
+        <a href="#">About</a>
+        <a href="#">Details</a>
+        <a href="#" class="purchase">Purchase</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="glass">
+        <h1>
+            Where Luxury <br>
+            Becomes <span>Timeless</span>
+        </h1>
+
+        <button class="cta">Explore</button>
+    </div>
+</section>
+
+<section class="content">
+    <h2>Our Collection</h2>
+    <p>
+        Discover premium watches designed with precision, elegance, and luxury.
+        Each piece is crafted to perfection for those who value timeless beauty.
+    </p>
+</section>
+
+<section class="video-section">
+
+    <video autoplay muted loop class="bg-video">
+        <source src="gmt.mp4" type="video/mp4">
+    </video>
+    <div class="video-label">GMT Master II Collection</div>
+
+</section>
+
+<script>
+const elements = document.querySelectorAll('.content, .video-overlay');
+
+window.addEventListener('scroll', () => {
+  elements.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if(top < window.innerHeight - 100){
+      el.style.opacity = 1;
+      el.style.transform = "translateY(0)";
+    }
+  });
+});
+</script>
+
+</body>
+</html>
