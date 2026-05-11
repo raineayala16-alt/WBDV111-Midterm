@@ -83,6 +83,8 @@ body {
 
 .card {
     position: relative;
+    display: flex;
+    flex-direction: column;
     padding: 40px;
     max-width: 650px;
     width: 100%;
@@ -125,6 +127,8 @@ body {
     position: absolute;
     top: 35px;
     right: 35px;
+    align-self: flex-start;
+    margin-bottom: 20px;
     font-size: 22px;
     background: linear-gradient(135deg, #d4af37, #f5c56a);
     color: #000;
@@ -140,6 +144,8 @@ body {
     position: absolute;
     bottom: 10px;
     right: 35px;
+    margin-top: 30px;
+    align-self: flex-end;
     display: flex;
     gap: 15px;
 }

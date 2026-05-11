@@ -51,7 +51,7 @@ body{
 .container{
     position:relative;
     z-index:1;
-    padding:130px 80px 80px 80px;
+    padding:130px 80px 150px 80px;
     max-width:1200px;
 }
 
@@ -62,7 +62,8 @@ body{
     margin-bottom:60px;
 }
 
-.top h1{
+.top h1,
+.content h1 {
     font-size:48px;
     font-weight:600;
 }

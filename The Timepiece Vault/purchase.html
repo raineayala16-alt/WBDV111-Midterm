@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<head>
+    <title>Watch Product</title>
+    <link rel="stylesheet" href="purchase.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<a href="index.html" class="back-button" title="Return to Home Page">←</a>
+
+<div class="history-icon" onclick="openHistoryModal()" title="Order History">
+    <img src="history.png" alt="History Icon">
+</div>
+
+<div class="cart-icon">
+    <img src="cart.png" alt="Cart Icon">
+    <span id="cart-count">0</span>
+</div>
+
+<section class="container">
+
+    <div class="image">
+        <img src="gmt1.png" alt="watch">
+    </div>
+
+    <div class="card">
+        <h1>GMT-Master II</h1>
+
+        <div class="sub">
+            <span>Men Watch</span>
+        </div>
+
+        <div class="details">
+            <div>Color</div><div>Silver/Blue</div>
+            <div>Strap</div><div>Oyster</div>
+            <div>Bezel</div><div>Bezel</div>
+            <div>Markers</div><div>Hands</div>
+            <div>Reference Number</div><div>RLX-M68845-7826</div>
+        </div>
+
+        <div class="price">₱10,000</div>
+
+        <div class="button-group">
+            <button class="add-cart" onclick="addToCart()" title="Add to Cart">
+                <img src="cart.png" class="button-icon">
+            </button>
+            <button class="buy-now" onclick="openBuyModal()" title="Buy Now">
+                <img src="buy.png" class="button-icon">
+            </button>
+        </div>
+    </div>
+</section>
+
+<div id="buy-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <div id="modal-form-container">
+            <h2>Checkout Information</h2>
+            <form id="checkout-form">
+                <div class="input-row">
+                    <input type="text" placeholder="First Name" required>
+                    <input type="text" placeholder="Last Name" required>
+                </div>
+                <input type="text" placeholder="House Number" required>
+                <input type="text" placeholder="Street Name" required>
+                <input type="text" placeholder="Brgy" required>
+                <input type="text" placeholder="City" required>
+                <input type="text" placeholder="Contact Number" required>
+                <input type="email" placeholder="Email" required> 
+                <input type="text" placeholder="Please input Cash Payment (Gcash, Bank)" required>
+                <button type="submit" class="confirm-btn">Confirm Purchase</button>
+            </form>
+        </div>
+        <div id="thank-you-message" style="display: none; text-align: center; padding: 20px 0;">
+            <div style="font-size: 40px; margin-bottom: 15px;">✓</div>
+            <h2 style="color: #e5bf24; margin-bottom: 5px;">Purchase Confirmed!</h2>
+            
+            <div id="receipt-area" style="text-align: left; background: rgba(255,255,255,0.03); border: 1px solid rgba(229,191,36,0.2); border-radius: 10px; padding: 20px; margin: 20px 0; font-family: 'Courier New', Courier, monospace; font-size: 13px;">
+                <h3 style="text-align: center; border-bottom: 1px dashed #e5bf24; padding-bottom: 10px; margin-bottom: 15px; color: #e5bf24; font-family: 'DM Sans', sans-serif;">THE TIMEPIECE VAULT</h3>
+                <p><strong>ORDER ID:</strong> <span id="rec-id"></span></p>
+                <p><strong>DATE:</strong> <span id="rec-date"></span></p>
+                <hr style="border: none; border-top: 1px dashed rgba(229,191,36,0.2); margin: 10px 0;">
+                <p><strong>PRODUCT:</strong> <span id="rec-item"></span></p>
+                <p><strong>PRICE:</strong> <span id="rec-price"></span></p>
+                <hr style="border: none; border-top: 1px dashed rgba(229,191,36,0.2); margin: 10px 0;">
+                <p><strong>SHIP TO:</strong> <span id="rec-cust"></span></p>
+                <p><strong>ADDR:</strong> <span id="rec-addr"></span></p>
+                <p><strong>PAYMENT:</strong> <span id="rec-pay"></span></p>
+                <p style="text-align: center; margin-top: 15px; font-style: italic; opacity: 0.7;">Keep this receipt for your records.</p>
+            </div>
+
+            <button class="confirm-btn" onclick="window.print()" style="margin-top: 10px; background: transparent; border: 1px solid #e5bf24; color: #e5bf24;">Download Receipt</button>
+            <button class="confirm-btn" onclick="closeModal()" style="margin-top: 10px;">Return to Store</button>
+        </div>
+    </div>
+</div>
+
+<div id="history-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeHistoryModal()">&times;</span>
+        <h2>Order History</h2>
+        <div id="history-list" class="history-list">
+            <!-- History items will be injected here -->
+        </div>
+    </div>
+</div>
+
+<script>
+let count = 0;
+
+window.onload = function() {
+    const params = new URLSearchParams(window.location.search);
+    const watchImg = params.get('img');
+    const watchName = params.get('name');
+    const watchRef = params.get('ref');
+
+    if (watchImg) {
+        document.querySelector('.image img').src = decodeURIComponent(watchImg);
+    }
+    if (watchName) {
+        document.querySelector('.card h1').innerText = decodeURIComponent(watchName);
+    }
+    if (watchRef) {
+        document.querySelector('.details div:last-child').innerText = decodeURIComponent(watchRef);
+    }
+}
+
+function addToCart() {
+    count++;
+    document.getElementById("cart-count").textContent = count;
+}
+
+function openBuyModal() {
+    if (sessionStorage.getItem('isLoggedIn') !== 'true') {
+        const currentUrl = window.location.href;
+        window.location.href = `login.html?redirect=${encodeURIComponent(currentUrl)}`;
+        return;
+    }
+    document.getElementById('modal-form-container').style.display = 'block';
+    document.getElementById('thank-you-message').style.display = 'none';
+    document.getElementById('buy-modal').style.display = 'block';
+}
+
+function closeModal() {
+    document.getElementById('buy-modal').style.display = 'none';
+}
+
+function openHistoryModal() {
+    renderHistory();
+    document.getElementById('history-modal').style.display = 'block';
+}
+
+function closeHistoryModal() {
+    document.getElementById('history-modal').style.display = 'none';
+}
+
+window.onclick = function(event) {
+    const modal = document.getElementById('buy-modal');
+    const historyModal = document.getElementById('history-modal');
+    if (event.target == modal) closeModal();
+    if (event.target == historyModal) closeHistoryModal();
+}
+
+document.getElementById('checkout-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Get user input values
+    const inputs = this.querySelectorAll('input');
+    const fullName = `${inputs[0].value} ${inputs[1].value}`;
+    const fullAddress = `${inputs[2].value}, ${inputs[3].value}, ${inputs[4].value}, ${inputs[5].value}`;
+    const paymentMethod = inputs[8].value;
+
+    // Get watch details
+    const watchName = document.querySelector('.card h1').innerText;
+    const watchPrice = document.querySelector('.price').innerText;
+    const watchRef = document.querySelector('.details div:last-child').innerText;
+
+    const submitBtn = this.querySelector('.confirm-btn');
+    submitBtn.innerText = 'Processing Transaction...';
+    submitBtn.style.opacity = '0.7';
+    
+    setTimeout(() => {
+        // Populate Receipt Data
+        document.getElementById('rec-id').innerText = watchRef;
+        document.getElementById('rec-date').innerText = new Date().toLocaleString();
+        document.getElementById('rec-item').innerText = watchName;
+        document.getElementById('rec-price').innerText = watchPrice;
+        document.getElementById('rec-cust').innerText = fullName;
+        document.getElementById('rec-addr').innerText = fullAddress;
+        document.getElementById('rec-pay').innerText = paymentMethod;
+
+        // Save to Local Storage History
+        const orderData = {
+            id: watchRef,
+            date: new Date().toLocaleString(),
+            itemName: watchName,
+            price: watchPrice
+        };
+        saveOrderToHistory(orderData);
+
+        document.getElementById('modal-form-container').style.display = 'none';
+        document.getElementById('thank-you-message').style.display = 'block';
+    }, 2000);
+});
+
+function saveOrderToHistory(order) {
+    let history = JSON.parse(localStorage.getItem('vaultOrderHistory')) || [];
+    history.unshift(order); // Add new order to the top
+    localStorage.setItem('vaultOrderHistory', JSON.stringify(history));
+}
+
+function renderHistory() {
+    const historyList = document.getElementById('history-list');
+    const history = JSON.parse(localStorage.getItem('vaultOrderHistory')) || [];
+    
+    if (history.length === 0) {
+        historyList.innerHTML = '<p style="text-align:center; opacity:0.5; padding: 20px;">No previous orders found.</p>';
+        return;
+    }
+
+    historyList.innerHTML = history.map(order => `
+        <div class="history-item">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h4 style="color: #e5bf24; margin: 0;">${order.itemName}</h4>
+                <span style="font-size: 10px; opacity: 0.6;">${order.date}</span>
+            </div>
+            <p style="font-size: 12px; margin: 5px 0 0 0; opacity: 0.8;">Ref: ${order.id} • ${order.price}</p>
+        </div>
+    `).join('');
+}
+</script>
+
+    <style>
+        .history-icon {
+            position: fixed;
+            top: 30px;
+            right: 120px;
+            z-index: 1001;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: 1px solid rgba(229, 191, 36, 0.3);
+            transition: 0.3s;
+            overflow: hidden;
+        }
+        .history-icon:hover {
+            background: rgba(229, 191, 36, 0.2);
+            transform: scale(1.1);
+        }
+        .history-icon img {
+            width: 24px;
+            height: 24px;
+            filter: sepia(1) saturate(5) hue-rotate(5deg);
+            mix-blend-mode: screen;
+        }
+
+        .cart-icon {
+            position: fixed;
+            top: 30px;
+            right: 50px;
+            z-index: 1001;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: 1px solid rgba(229, 191, 36, 0.3);
+        }
+        .cart-icon img {
+            width: 24px;
+            height: 24px;
+        }
+        #cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #e5bf24;
+            color: #000;
+            font-size: 10px;
+            font-weight: 800;
+            width: 18px;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+.modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            overflow-y: auto;
+        }
+        .modal-content {
+            background-color: #121212;
+            margin: 2% auto;
+            padding: 30px;
+            border: 1px solid #e5bf24;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 15px;
+            color: #f5f5dc;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .close-btn {
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #e5bf24;
+        }
+        .modal-content h2 { color: #e5bf24; margin-top: 0; margin-bottom: 20px; text-align: center; }
+        .modal-content input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(229, 191, 36, 0.3);
+            border-radius: 8px;
+            color: white;
+            box-sizing: border-box;
+            font-family: 'DM Sans', sans-serif;
+        }
+        .modal-content .input-row { display: flex; gap: 10px; }
+        .confirm-btn {
+            width: 100%;
+            padding: 15px;
+            background: #e5bf24;
+            border: none;
+            border-radius: 8px;
+            color: #000;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 20px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+        .confirm-btn:hover { background: #f5c56a; }
+
+        .history-list {
+            max-height: 400px;
+            overflow-y: auto;
+            padding-right: 5px;
+        }
+        .history-item {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(229,191,36,0.1);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        @media print {
+            body * { visibility: hidden; }
+            #receipt-area, #receipt-area * { visibility: visible; }
+            #receipt-area { position: absolute; left: 0; top: 0; width: 100%; border: 1px solid #000; color: #000; background: #fff; }
+            #receipt-area h3 { color: #000; border-bottom: 1px dashed #000; }
+        }
+    </style>
+
+</body>
+</html>

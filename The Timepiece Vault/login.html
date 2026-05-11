@@ -6,22 +6,45 @@
 </head>
 <body>
     <div class="card">
-        <h2>Log-In</h2>
-        <div class="toggle">
-            <button class="toggle-btn active">User</button>
-            <button class="toggle-btn">Admin</button>
-            <div class="slider"></div>
+        <h2 id="form-title">Log-In</h2>
+        <div class="main-toggle">
+            <button class="main-toggle-btn active" id="show-login">Log In</button>
+            <button class="main-toggle-btn" id="show-signup">Sign Up</button>
+            <div class="main-slider"></div>
         </div>
-        <form id="login-form">
+
+        <div id="login-section">
+            <div class="toggle">
+                <button class="toggle-btn active">User</button>
+                <button class="toggle-btn">Admin</button>
+                <div class="slider"></div>
+            </div>
+            <form id="login-form">
+                <div class="input-row">
+                    <input type="text" placeholder="First Name" required>
+                    <input type="text" placeholder="Last Name" required>
+                </div>
+                <input type="Password" placeholder="Password" required>
+                <button type="submit" class="main-btn">Login</button>
+                <p style="text-align: center; font-size: 11px; opacity: 0.5; margin-top: 15px;">
+                    By logging in, you agree to our Terms of Agreement
+                </p>
+            </form>
+        </div>
+
+        <form id="signup-form" style="display: none;">
             <div class="input-row">
                 <input type="text" placeholder="First Name" required>
                 <input type="text" placeholder="Last Name" required>
             </div>
-            <input type="Email" placeholder="Email" required>
-            <button type="submit" class="main-btn">Login</button>
-            <p style="position: absolute; bottom: 15px; left: 0; width: 100%; text-align: center; font-size: 11px; opacity: 0.5;">
-                By logging in, you agree to our Terms of Agreement
-            </p>
+            <input type="email" placeholder="Email Address" required>
+            <input type="password" id="signup-pass" placeholder="Create Password" required>
+            <input type="password" id="signup-confirm" placeholder="Confirm Password" required>
+            <div class="terms-container">
+                <input type="checkbox" id="terms-check" required>
+                <label for="terms-check">I agree to the <a href="privterms.html#terms" target="_blank" style="color: #e5bf24; text-decoration: none;">Terms of Agreement</a></label>
+            </div>
+            <button type="submit" class="main-btn">Create Account</button>
         </form>
 
         <div id="admin-verify" style="display: none;">
@@ -47,10 +70,32 @@
         </div>
     </div>
 
+    <div class="credentials-hint">
+        <div class="hint-section">
+            <h3>User Access</h3>
+            <p><strong>First Name:</strong> (Your Name)</p>
+            <p><strong>Last Name:</strong> (Your Last Name)</p>
+            <p><strong>Password:</strong> user123</p>
+        </div>
+        <div class="hint-section">
+            <h3>Admin Access</h3>
+            <p><strong>Code Verification:</strong> 123456</p>
+            <p><strong>First Name:</strong> (Your Name)</p>
+            <p><strong>Last Name:</strong> (Your Last Name)</p>
+            <p><strong>Password:</strong> 123456</p>
+        </div>
+    </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const urlParams = new URLSearchParams(window.location.search);
             const redirectPath = urlParams.get('redirect') || 'watches.html';
+
+            const mainToggleBtns = document.querySelectorAll('.main-toggle-btn');
+            const loginSection = document.getElementById('login-section');
+            const signupForm = document.getElementById('signup-form');
+            const mainSlider = document.querySelector('.main-slider');
+            const formTitle = document.getElementById('form-title');
 
             const toggleBtns = document.querySelectorAll('.toggle-btn');
             const userBtn = toggleBtns[0];
@@ -79,9 +124,46 @@
                 });
             });
 
+            // Main Toggle Logic
+            document.getElementById('show-login').addEventListener('click', () => {
+                mainSlider.style.left = "0%";
+                document.getElementById('show-login').classList.add('active');
+                document.getElementById('show-signup').classList.remove('active');
+                loginSection.style.display = 'block';
+                signupForm.style.display = 'none';
+                adminVerify.style.display = 'none';
+                formTitle.innerText = "Log-In";
+                // Reset sub-toggle to User
+                userBtn.click();
+            });
+
+            document.getElementById('show-signup').addEventListener('click', () => {
+                mainSlider.style.left = "50%";
+                document.getElementById('show-signup').classList.add('active');
+                document.getElementById('show-login').classList.remove('active');
+                loginSection.style.display = 'none';
+                signupForm.style.display = 'block';
+                adminVerify.style.display = 'none';
+                formTitle.innerText = "Sign-Up";
+            });
+
             loginForm.addEventListener('submit', (e) => {
                 e.preventDefault();
+                sessionStorage.setItem('isLoggedIn', 'true');
                 window.location.href = redirectPath;
+            });
+
+            signupForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const pass = document.getElementById('signup-pass').value;
+                const confirm = document.getElementById('signup-confirm').value;
+
+                if (pass !== confirm) {
+                    alert("Passwords do not match!");
+                    return;
+                }
+                alert("Account created successfully! Please log in.");
+                document.getElementById('show-login').click();
             });
 
             adminBtn.addEventListener('click', () => {
@@ -93,7 +175,7 @@
                 adminStep = 1;
                 document.getElementById('admin-step-1').style.display = 'block';
                 document.getElementById('admin-step-2').style.display = 'none';
-                document.querySelector('h2').innerText = "Verify Code";
+                formTitle.innerText = "Verify Code";
                 verifyBtn.innerText = "Verify Access";
                 pinInputs[0].focus();
             });
@@ -104,7 +186,7 @@
                 adminBtn.classList.remove('active');
                 loginForm.style.display = 'block';
                 adminVerify.style.display = 'none';
-                document.querySelector('h2').innerText = "Log-In";
+                formTitle.innerText = "Log-In";
             });
 
             verifyBtn.addEventListener('click', () => {
@@ -116,7 +198,7 @@
                         adminStep = 2;
                         document.getElementById('admin-step-1').style.display = 'none';
                         document.getElementById('admin-step-2').style.display = 'block';
-                        document.querySelector('h2').innerText = "Admin Access";
+                        formTitle.innerText = "Admin Access";
                         verifyBtn.innerText = "Login as Admin";
                         attempts = 0;
                         document.getElementById('admin-name').focus();
@@ -127,6 +209,7 @@
                     const lname = document.getElementById('admin-lname').value;
                     const pass = document.getElementById('admin-pass').value;
                     if (pass === "123456" && name.trim() !== "" && lname.trim() !== "") {
+                        sessionStorage.setItem('isLoggedIn', 'true');
                         window.location.href = "admin.html";
                         return;
                     }
@@ -182,5 +265,280 @@
             });
         });
     </script>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: #000;
+            font-family: 'DM Sans', sans-serif;
+            color: #f5f5dc;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(25px) brightness(1.1);
+            -webkit-backdrop-filter: blur(25px) brightness(1.1);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(229, 191, 36, 0.3);
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6), inset 0 0 20px rgba(255, 255, 255, 0.05);
+            min-height: 520px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            z-index: 1;
+        }
+
+        h2 {
+            color: #e5bf24;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 25px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            font-size: 24px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            margin: 8px 0;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(229, 191, 36, 0.2);
+            border-radius: 8px;
+            color: #fff;
+            font-family: 'DM Sans', sans-serif;
+            box-sizing: border-box;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #e5bf24;
+            background: rgba(255,255,255,0.08);
+        }
+
+        .input-row {
+            display: flex;
+            gap: 10px;
+        }
+
+        /* Premium Button Styling */
+        .main-btn {
+            width: 100%;
+            padding: 14px;
+            background: #e5bf24;
+            border: none;
+            border-radius: 8px;
+            color: #000;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(229, 191, 36, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Button Shine Animation */
+        .main-btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 20%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.4);
+            transform: rotate(30deg);
+            transition: 0.5s;
+            opacity: 0.3;
+        }
+
+        .main-btn:hover {
+            background: #f5c56a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(229, 191, 36, 0.4);
+        }
+
+        .main-btn:hover::after {
+            left: 120%;
+        }
+
+        .main-btn:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        /* Main Toggle Styles */
+        .main-toggle {
+            display: flex;
+            position: relative;
+            background: rgba(255,255,255,0.03);
+            border-radius: 50px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(229, 191, 36, 0.2);
+            padding: 4px;
+        }
+        .main-toggle-btn {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            background: none;
+            color: #f5f5dc;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            z-index: 1;
+            transition: 0.3s;
+            font-size: 14px;
+        }
+        .main-toggle-btn.active { color: #000; }
+        
+        /* Sub Toggle Styles (User/Admin) */
+        .toggle {
+            display: flex;
+            position: relative;
+            background: rgba(255,255,255,0.03);
+            border-radius: 10px;
+            margin-bottom: 25px;
+            padding: 3px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .toggle-btn {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            background: none;
+            color: #f5f5dc;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            z-index: 1;
+            transition: 0.3s;
+            font-size: 13px;
+        }
+
+        .toggle-btn.active { color: #000; }
+
+        .slider {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: calc(50% - 3px);
+            height: calc(100% - 6px);
+            background: #e5bf24;
+            border-radius: 8px;
+            transition: 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+        }
+
+        .main-slider {
+            position: absolute;
+            top: 4px;
+            left: 0;
+            width: 50%;
+            height: calc(100% - 8px);
+            background: #e5bf24;
+            border-radius: 50px;
+            transition: 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+        }
+
+        /* Admin PIN Styling */
+        .pin-container {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .pin-input {
+            width: 45px !important;
+            height: 50px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: 700;
+            color: #e5bf24;
+        }
+
+        /* Sign Up Styles */
+        .terms-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 15px 0;
+            font-size: 13px;
+            opacity: 0.8;
+            color: #f5f5dc;
+            justify-content: center;
+        }
+        .terms-container input[type="checkbox"] {
+            width: auto;
+            margin: 0;
+            accent-color: #e5bf24;
+        }
+
+        .credentials-hint {
+            position: fixed;
+            right: 40px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(229, 191, 36, 0.3);
+            padding: 25px;
+            border-radius: 15px;
+            color: #f5f5dc;
+            width: 260px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .hint-section:not(:last-child) {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(229, 191, 36, 0.1);
+        }
+
+        .hint-section h3 {
+            color: #e5bf24;
+            margin: 0 0 10px 0;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hint-section p {
+            margin: 5px 0;
+            font-size: 13px;
+            opacity: 0.8;
+        }
+
+        .hint-section strong {
+            color: #e5bf24;
+            font-weight: 600;
+        }
+
+        @media (max-width: 1100px) {
+            .credentials-hint {
+                position: static;
+                transform: none;
+                margin-top: 20px;
+                width: 340px;
+                box-sizing: border-box;
+            }
+            body {
+                flex-direction: column;
+                padding: 40px 0;
+            }
+        }
+    </style>
 </body>
 </html>
